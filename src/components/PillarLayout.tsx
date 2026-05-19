@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 export interface PillarMeta {
   id: string;
@@ -19,9 +20,15 @@ export interface PillarMeta {
   tagline: string;
   description: string;
   heroImage: string;
+  /** Alt text for the hero image (used for OG image alt) */
+  heroImageAlt?: string;
   accentColor: string;
   glowRgb: string; // e.g. "212, 168, 71"
   label: string;
+  /** SEO keywords for this pillar page */
+  keywords?: string;
+  /** Canonical path, e.g. "/solutions/governance" */
+  canonicalPath?: string;
 }
 
 interface PillarLayoutProps {
@@ -37,6 +44,25 @@ export default function PillarLayout({ meta, children }: PillarLayoutProps) {
 
   return (
     <div className="min-h-screen" style={{ background: "oklch(0.08 0.015 240)" }}>
+      <SEO
+        title={`${meta.title} — Bharat Agentic Stack | KrishuAI`}
+        description={meta.description}
+        keywords={meta.keywords}
+        canonical={meta.canonicalPath}
+        ogImage={meta.heroImage}
+        ogImageAlt={meta.heroImageAlt ?? meta.title}
+        ogImageWidth={1200}
+        ogImageHeight={630}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://krishuaitech-murffryc.manus.space/" },
+            { "@type": "ListItem", position: 2, name: "Solutions", item: "https://krishuaitech-murffryc.manus.space/#pillars" },
+            { "@type": "ListItem", position: 3, name: meta.title, item: `https://krishuaitech-murffryc.manus.space${meta.canonicalPath ?? "/"}` }
+          ]
+        }}
+      />
       <Navigation />
 
       {/* Hero */}

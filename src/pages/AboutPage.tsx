@@ -6,6 +6,7 @@
 
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 
@@ -104,6 +105,20 @@ const team = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen" style={{ background: "oklch(0.08 0.015 240)" }}>
+      <SEO
+        title="About KrishuAI — India's Sovereign AI Technology House | Krishu Techventures"
+        description="KrishuAI is India's premier Global AI Technology House, building sovereign Bharat-native Agentic AI. Meet Chief AI Officer Shailendra Kumar and the team behind the Bharat Agentic Stack."
+        keywords="KrishuAI about, Shailendra Kumar AI, Ashwini Sharma CEO, sovereign AI India team, Krishu Techventures, Bharat Agentic Stack team, AI company India, AI technology house India"
+        canonical="/about"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://krishuaitech-murffryc.manus.space/" },
+            { "@type": "ListItem", position: 2, name: "About KrishuAI", item: "https://krishuaitech-murffryc.manus.space/about" }
+          ]
+        }}
+      />
       <Navigation />
 
       {/* Hero */}
@@ -441,18 +456,35 @@ export default function AboutPage() {
                 <p className="text-xs text-white/45 leading-relaxed flex-1" style={{ fontFamily: "DM Sans" }}>
                   {member.bio}
                 </p>
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs transition-all duration-200 hover:opacity-100 opacity-50 group-hover:opacity-80"
-                  style={{ color: member.accent, fontFamily: "DM Sans" }}
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                  View on LinkedIn
-                </a>
+                <div className="flex items-center gap-3">
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs transition-all duration-200 hover:opacity-100 opacity-50 group-hover:opacity-80"
+                    style={{ color: member.accent, fontFamily: "DM Sans" }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                  </a>
+                  {(member as any).bioLink && (
+                    <Link href={(member as any).bioLink}>
+                      <span
+                        className="flex items-center gap-1 text-xs transition-all duration-200 hover:opacity-100 opacity-50 group-hover:opacity-80 cursor-pointer"
+                        style={{ color: member.accent, fontFamily: "DM Sans" }}
+                      >
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                          <polyline points="15 3 21 3 21 9"/>
+                          <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                        Full Profile
+                      </span>
+                    </Link>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>

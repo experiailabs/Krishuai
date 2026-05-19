@@ -1,7 +1,7 @@
 /*
  * KrishuAI — ContactSection Component
  * Design: Agent-first navigation — visitor identifies their profile
- * Profiles: Government Official, Enterprise Leader, Travel Executive, Educator, Investor
+ * Profiles: Government Official, Enterprise Leader, Travel Executive, Educator
  * Visual: Glassmorphic form with profile-adaptive accent colors
  */
 
@@ -45,15 +45,6 @@ const profiles = [
     placeholder: "Tell us about your learning platform or institution...",
     cta: "Explore Sovereign Learning",
     description: "Deploy adaptive AI agents for your learners",
-  },
-  {
-    id: "investor",
-    label: "Investor / Partner",
-    icon: "◈",
-    color: "#A78BFA",
-    placeholder: "Share your investment thesis or partnership interest...",
-    cta: "Request an Investor Deck",
-    description: "Join the AI sovereignty movement",
   },
 ];
 

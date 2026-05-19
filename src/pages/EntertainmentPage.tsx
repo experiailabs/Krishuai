@@ -4,11 +4,33 @@
  * Design: Violet accent, generative media aesthetic, Bollywood/streaming focus
  */
 
+import { Link } from "wouter";
 import PillarLayout, { type PillarMeta } from "@/components/PillarLayout";
 import CapabilitiesSection, { type Capability } from "@/components/CapabilitiesSection";
 import CaseStudySection, { type CaseStudy } from "@/components/CaseStudySection";
-import BharatStackDiagram from "@/components/BharatStackDiagram";
+import BharatAgenticStack from "@/components/BharatAgenticStack";
 import PillarCTA from "@/components/PillarCTA";
+
+const RELATED_INSIGHTS = [
+  {
+    slug: "bollywood-meets-ai-generative-media-revolution",
+    title: "Bollywood Meets AI: The Generative Media Revolution",
+    subtitle: "How AI is Transforming India's ₹19,000 Crore Film Industry",
+    category: "Entertainment AI",
+    accent: "#A78BFA",
+    readTime: "9 min read",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_entertainment_hero-Pvp92ihwayPZkLzP7BR6P6.webp",
+  },
+  {
+    slug: "bharat-agentic-stack-technical-architecture",
+    title: "Bharat Agentic Stack: The Technical Architecture of India's Sovereign AI Future",
+    subtitle: "From Silicon to Citizen — A Five-Layer Blueprint",
+    category: "Technology Strategy",
+    accent: "#3B82F6",
+    readTime: "11 min read",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_agentic_stack_hero-LaHSrWeWG38DSWfASECMdG.webp",
+  },
+];
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/pillar_entertainment-GiFA2EaBejPQVCMdS8Qg4X.webp";
 const CASE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/case_entertainment-4bEH8c7k2N58nB7jC6UD8C.webp";
@@ -22,9 +44,12 @@ const meta: PillarMeta = {
   description:
     "AI-driven creative pipelines that generate scripts, characters, visual assets, and immersive narratives. From Bollywood to global streaming — KrishuAI is building the infrastructure that will define how stories are created, distributed, and experienced in the AI era.",
   heroImage: HERO_IMG,
+  heroImageAlt: "KrishuAI AI Entertainment — generative media and storytelling infrastructure for Bollywood and India's film industry",
   accentColor: "#A78BFA",
   glowRgb: "167, 139, 250",
   label: "Generative Media & Storytelling",
+  keywords: "AI entertainment India, Bollywood AI, generative media India, AI film production India, AI dubbing India, KrishuAI entertainment, Indian cinema AI",
+  canonicalPath: "/solutions/entertainment",
 };
 
 const capabilities: Capability[] = [
@@ -166,7 +191,39 @@ export default function EntertainmentPage() {
         accentColor="#A78BFA"
         glowRgb="167, 139, 250"
       />
-      <BharatStackDiagram accentColor="#A78BFA" glowRgb="167, 139, 250" />
+      <BharatAgenticStack accentColor="#A78BFA" glowRgb="167, 139, 250" showHeader={true} />
+
+      {/* Related Insights — internal linking for SEO */}
+      <section className="py-16" style={{ background: "oklch(0.09 0.015 240)" }}>
+        <div className="container">
+          <div className="mono-label text-xs text-white/40 mb-2">◆ Related Insights</div>
+          <h2 className="text-2xl font-bold text-white mb-8" style={{ fontFamily: "Space Grotesk" }}>
+            From the Intelligence Dispatch
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {RELATED_INSIGHTS.map((article) => (
+              <Link key={article.slug} href={`/insights/${article.slug}`}>
+                <div
+                  className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
+                  style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
+                >
+                  <div className="relative h-44 overflow-hidden">
+                    <img src={article.heroImage} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)" }} />
+                    <span className="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: `rgba(167,139,250,0.12)`, color: article.accent, border: `1px solid rgba(167,139,250,0.2)`, fontFamily: "Space Grotesk" }}>{article.category}</span>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-xs text-white/40 mb-1" style={{ fontFamily: "DM Sans" }}>{article.readTime}</p>
+                    <h3 className="font-semibold text-white text-sm leading-snug mb-1" style={{ fontFamily: "Space Grotesk" }}>{article.title}</h3>
+                    <p className="text-xs text-white/50" style={{ fontFamily: "DM Sans" }}>{article.subtitle}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <PillarCTA
         accentColor="#A78BFA"
         glowRgb="167, 139, 250"

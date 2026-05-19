@@ -7,8 +7,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
-import { toast } from "sonner";
+
 
 const departments = ["All", "Engineering", "Design", "Research", "Strategy", "Operations"];
 
@@ -105,13 +106,24 @@ const roles = [
   },
 ];
 
+const PerkIcon = ({ type }: { type: string }) => {
+  const props = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+  if (type === "globe") return <svg {...props}><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>;
+  if (type === "brain") return <svg {...props}><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-1.98-3 2.5 2.5 0 0 1-1.32-4.24 3 3 0 0 1 .34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.1-2.48Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 1.98-3 2.5 2.5 0 0 0 1.32-4.24 3 3 0 0 0-.34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.1-2.48Z"/></svg>;
+  if (type === "plane") return <svg {...props}><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4c-1 0-1.5.5-3.5 2.5L8 8 .8 6.2c-.5-.1-.9.4-.6.8l5.5 5.5c.2.2.2.5 0 .7l-1.5 1.5c-.2.2-.5.2-.7 0L2 19l1 1 5.1-1.5c.2-.1.5 0 .7.2l5.5 5.5c.4.3.9-.1.8-.6z"/></svg>;
+  if (type === "book") return <svg {...props}><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>;
+  if (type === "heart") return <svg {...props}><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>;
+  if (type === "equity") return <svg {...props}><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>;
+  return null;
+};
+
 const perks = [
-  { icon: "🌍", title: "Work on India's Most Impactful AI", desc: "Your work will directly affect millions of citizens, students, and travellers." },
-  { icon: "🧠", title: "Frontier Research Access", desc: "Full access to our research lab, compute resources, and academic partnerships." },
-  { icon: "✈️", title: "Global Exposure", desc: "Regular collaboration with ExperiAI Labs in Dubai and partners across 12 countries." },
-  { icon: "📚", title: "Learning Budget", desc: "₹1.5L annual learning budget for courses, conferences, and certifications." },
-  { icon: "🏥", title: "Comprehensive Health Cover", desc: "Full family health insurance including mental health and wellness benefits." },
-  { icon: "⚡", title: "Equity Participation", desc: "ESOPs for all full-time employees — share in the value we create together." },
+  { icon: "globe", title: "Work on India's Most Impactful AI", desc: "Your work will directly affect millions of citizens, students, and travellers." },
+  { icon: "brain", title: "Frontier Research Access", desc: "Full access to our research lab, compute resources, and academic partnerships." },
+  { icon: "plane", title: "Global Exposure", desc: "Regular collaboration with ExperiAI Labs in Dubai and partners across 12 countries." },
+  { icon: "book", title: "Learning Budget", desc: "₹1.5L annual learning budget for courses, conferences, and certifications." },
+  { icon: "heart", title: "Comprehensive Health Cover", desc: "Full family health insurance including mental health and wellness benefits." },
+  { icon: "equity", title: "Equity Participation", desc: "ESOPs for all full-time employees — share in the value we create together." },
 ];
 
 export default function CareersPage() {
@@ -121,6 +133,20 @@ export default function CareersPage() {
 
   return (
     <div className="min-h-screen" style={{ background: "oklch(0.08 0.015 240)" }}>
+      <SEO
+        title="Careers at KrishuAI — Build India's Sovereign AI Future"
+        description="Join KrishuAI and build India's sovereign AI infrastructure. Open roles in AI/ML Engineering, Research, Design, Strategy, and Operations in New Delhi and Remote."
+        keywords="KrishuAI careers, AI jobs India, ML engineer India, AI research jobs New Delhi, sovereign AI careers, Krishu Techventures jobs, AI engineer India"
+        canonical="/careers"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://krishuaitech-murffryc.manus.space/" },
+            { "@type": "ListItem", position: 2, name: "Careers", item: "https://krishuaitech-murffryc.manus.space/careers" }
+          ]
+        }}
+      />
       <Navigation />
 
       {/* Hero */}
@@ -192,7 +218,9 @@ export default function CareersPage() {
                   border: "1px solid rgba(255,255,255,0.07)",
                 }}
               >
-                <div className="text-2xl flex-shrink-0">{p.icon}</div>
+                <div className="flex-shrink-0 text-white/50 mt-0.5">
+                  <PerkIcon type={p.icon} />
+                </div>
                 <div>
                   <div
                     className="font-semibold text-white text-sm mb-1"
@@ -284,17 +312,18 @@ export default function CareersPage() {
                       </span>
                     </div>
                   </div>
-                  <button
-                    onClick={() => toast.success("Application form coming soon!", { description: `We'll notify you when applications open for ${role.title}.` })}
-                    className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-[1.03] flex-shrink-0"
+                  <a
+                    href={`mailto:hello@krishuai.com?subject=${encodeURIComponent('Job Application: ' + role.title)}&body=${encodeURIComponent('Hi KrishuAI Team,\n\nI would like to apply for the following role:\n\nRole: ' + role.title + '\nDepartment: ' + role.department + '\nLocation: ' + role.location + '\n\nPlease find my CV attached. I look forward to hearing from you.\n\nThank you.')}`}
+                    className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-[1.03] flex-shrink-0 inline-block"
                     style={{
                       background: `linear-gradient(135deg, ${role.accent}, ${role.accent}CC)`,
                       color: role.accent === "#D4A847" ? "#050A14" : "white",
                       fontFamily: "Space Grotesk",
+                      textDecoration: "none",
                     }}
                   >
                     Apply Now
-                  </button>
+                  </a>
                 </div>
                 <p className="text-sm text-white/50 leading-relaxed mb-4" style={{ fontFamily: "DM Sans" }}>
                   {role.description}
@@ -315,18 +344,19 @@ export default function CareersPage() {
             <p className="text-white/40 text-sm mb-4" style={{ fontFamily: "DM Sans" }}>
               Don't see the right role? We're always looking for exceptional people.
             </p>
-            <button
-              onClick={() => toast.success("Speculative application noted!", { description: "We'll reach out when a suitable role opens." })}
-              className="px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-[1.03]"
+            <a
+              href="mailto:hello@krishuai.com?subject=Speculative%20Application%20%E2%80%94%20KrishuAI&body=Hi%20KrishuAI%20Team%2C%0A%0AI%20am%20reaching%20out%20with%20a%20speculative%20application.%20I%20believe%20my%20skills%20and%20experience%20could%20be%20a%20strong%20fit%20for%20your%20team.%0A%0APlease%20find%20my%20CV%20attached.%20I%20look%20forward%20to%20hearing%20from%20you.%0A%0AThank%20you."
+              className="px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-[1.03] inline-block"
               style={{
                 background: "rgba(255,255,255,0.06)",
                 border: "1px solid rgba(255,255,255,0.12)",
                 color: "rgba(255,255,255,0.7)",
                 fontFamily: "Space Grotesk",
+                textDecoration: "none",
               }}
             >
               Send a Speculative Application
-            </button>
+            </a>
           </div>
         </div>
       </section>

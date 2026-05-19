@@ -90,17 +90,18 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay: index * 0.1 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      className="glass-card rounded-2xl overflow-hidden cursor-pointer group transition-all duration-500"
+      whileHover={{ y: -6, scale: 1.018 }}
+      transition={{ duration: 0.7, delay: index * 0.1, type: "spring", stiffness: 280, damping: 22 }}
+      className="glass-card rounded-2xl overflow-hidden cursor-pointer group"
       style={{
         border: `1px solid ${hovered ? pillar.borderHover : "rgba(255,255,255,0.08)"}`,
         background: hovered ? pillar.hoverBg : "rgba(255, 255, 255, 0.04)",
         boxShadow: hovered
-          ? `0 0 40px ${pillar.accentColor}25, 0 0 80px ${pillar.accentColor}10`
-          : "none",
-        transform: hovered ? "translateY(-4px)" : "translateY(0)",
+          ? `0 0 40px ${pillar.accentColor}25, 0 0 80px ${pillar.accentColor}10, 0 20px 60px rgba(0,0,0,0.4)`
+          : "0 4px 20px rgba(0,0,0,0.2)",
+        transition: "border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease",
       }}
     >
       {/* Image */}
@@ -108,7 +109,11 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
         <img
           src={pillar.image}
           alt={pillar.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover"
+          style={{
+            transform: hovered ? "scale(1.07)" : "scale(1)",
+            transition: "transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+          }}
         />
         <div
           className="absolute inset-0"
@@ -185,8 +190,8 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
         >
           Explore Deep-Dive
           <motion.span
-            animate={{ x: hovered ? 4 : 0 }}
-            transition={{ duration: 0.2 }}
+            animate={{ x: hovered ? 6 : 0, opacity: hovered ? 1 : 0.6 }}
+            transition={{ type: "spring", stiffness: 400, damping: 18 }}
           >
             →
           </motion.span>

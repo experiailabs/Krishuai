@@ -4,11 +4,33 @@
  * Design: Amber/gold accent, warm luxury aesthetic, concierge AI focus
  */
 
+import { Link } from "wouter";
 import PillarLayout, { type PillarMeta } from "@/components/PillarLayout";
 import CapabilitiesSection, { type Capability } from "@/components/CapabilitiesSection";
 import CaseStudySection, { type CaseStudy } from "@/components/CaseStudySection";
-import BharatStackDiagram from "@/components/BharatStackDiagram";
+import BharatAgenticStack from "@/components/BharatAgenticStack";
 import PillarCTA from "@/components/PillarCTA";
+
+const RELATED_INSIGHTS = [
+  {
+    slug: "ai-hyper-personalization-india-travel-hospitality",
+    title: "Hyper-Personalised Journeys: How AI Is Reinventing India's Travel Economy",
+    subtitle: "From Generic Itineraries to Multimodal Concierge Intelligence",
+    category: "AI Travel & Hospitality",
+    accent: "#FBBF24",
+    readTime: "9 min read",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_travel_hero-oZEfQeFENy6go64Kh4zJxq.webp",
+  },
+  {
+    slug: "bharat-agentic-stack-technical-architecture",
+    title: "Bharat Agentic Stack: The Technical Architecture of India's Sovereign AI Future",
+    subtitle: "From Silicon to Citizen — A Five-Layer Blueprint",
+    category: "Technology Strategy",
+    accent: "#3B82F6",
+    readTime: "11 min read",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_agentic_stack_hero-LaHSrWeWG38DSWfASECMdG.webp",
+  },
+];
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/pillar_travel-DkMUMrhPssqX3BTGRci2AA.webp";
 const CASE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/case_travel_cs-ECWBjnVh2fhLKQ3is752np.webp";
@@ -22,9 +44,12 @@ const meta: PillarMeta = {
   description:
     "Multimodal concierge systems that anticipate guest preferences before they're expressed. From booking to checkout, every touchpoint is orchestrated by an AI that knows your guest better than they know themselves — driving revenue uplift and loyalty simultaneously.",
   heroImage: HERO_IMG,
+  heroImageAlt: "KrishuAI AI Travel & Hospitality — multimodal AI concierge system for India's travel and hospitality sector",
   accentColor: "#FBBF24",
   glowRgb: "251, 191, 36",
   label: "Hyper-Personalized Journeys",
+  keywords: "AI travel India, hospitality AI India, multimodal concierge AI, travel personalisation India, hotel AI India, KrishuAI travel, India tourism AI",
+  canonicalPath: "/solutions/travel",
 };
 
 const capabilities: Capability[] = [
@@ -166,7 +191,39 @@ export default function TravelPage() {
         accentColor="#FBBF24"
         glowRgb="251, 191, 36"
       />
-      <BharatStackDiagram accentColor="#FBBF24" glowRgb="251, 191, 36" />
+      <BharatAgenticStack accentColor="#FBBF24" glowRgb="251, 191, 36" showHeader={true} />
+
+      {/* Related Insights — internal linking for SEO */}
+      <section className="py-16" style={{ background: "oklch(0.09 0.015 240)" }}>
+        <div className="container">
+          <div className="mono-label text-xs text-white/40 mb-2">◆ Related Insights</div>
+          <h2 className="text-2xl font-bold text-white mb-8" style={{ fontFamily: "Space Grotesk" }}>
+            From the Intelligence Dispatch
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {RELATED_INSIGHTS.map((article) => (
+              <Link key={article.slug} href={`/insights/${article.slug}`}>
+                <div
+                  className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
+                  style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
+                >
+                  <div className="relative h-44 overflow-hidden">
+                    <img src={article.heroImage} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)" }} />
+                    <span className="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: `rgba(251,191,36,0.12)`, color: article.accent, border: `1px solid rgba(251,191,36,0.2)`, fontFamily: "Space Grotesk" }}>{article.category}</span>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-xs text-white/40 mb-1" style={{ fontFamily: "DM Sans" }}>{article.readTime}</p>
+                    <h3 className="font-semibold text-white text-sm leading-snug mb-1" style={{ fontFamily: "Space Grotesk" }}>{article.title}</h3>
+                    <p className="text-xs text-white/50" style={{ fontFamily: "DM Sans" }}>{article.subtitle}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <PillarCTA
         accentColor="#FBBF24"
         glowRgb="251, 191, 36"

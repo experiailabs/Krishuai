@@ -5,7 +5,78 @@
  */
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Link } from "wouter";
+
+// ── Footer Logo: breathing pulse + shimmer hover + teal glow ─────────────────
+function FooterLogo() {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <motion.div
+      className="flex items-center cursor-pointer w-fit relative overflow-hidden"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      whileHover={{ scale: 1.04 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ type: "spring", stiffness: 350, damping: 22 }}
+      style={{
+        filter: hovered
+          ? "drop-shadow(0 0 10px rgba(14, 165, 233, 0.6)) drop-shadow(0 0 24px rgba(14, 165, 233, 0.28))"
+          : "drop-shadow(0 0 0px transparent)",
+        transition: "filter 0.35s ease",
+      }}
+    >
+      {/* Breathing pulse when idle */}
+      <motion.img
+        src="/manus-storage/logo_footer_white_80400ad3.png"
+        alt="Krishu Techventures"
+        style={{ height: '48px', width: 'auto', display: 'block' }}
+        animate={!hovered ? { opacity: [1, 0.82, 1] } : { opacity: 1 }}
+        transition={!hovered ? { duration: 3.5, repeat: Infinity, ease: "easeInOut" } : { duration: 0.2 }}
+      />
+      {/* Shimmer sweep on hover */}
+      <motion.span
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.32) 50%, transparent 70%)",
+          backgroundSize: "200% 100%",
+        }}
+        initial={{ backgroundPosition: "-100% 0" }}
+        animate={hovered ? { backgroundPosition: "200% 0" } : { backgroundPosition: "-100% 0" }}
+        transition={{ duration: 0.55, ease: "easeInOut" }}
+      />
+    </motion.div>
+  );
+}
+
+// ── Footer Link: slide-right arrow reveal on hover ───────────────────────────
+function FooterLink({ label }: { label: string }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <motion.span
+      className="flex items-center gap-1 text-sm cursor-pointer"
+      style={{
+        fontFamily: "DM Sans",
+        color: hovered ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.5)",
+        transition: "color 0.2s ease",
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {label}
+      <motion.span
+        className="text-xs"
+        style={{ color: "rgba(14, 165, 233, 0.8)" }}
+        initial={{ opacity: 0, x: -4 }}
+        animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -4 }}
+        transition={{ duration: 0.18 }}
+      >
+        →
+      </motion.span>
+    </motion.span>
+  );
+}
 
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Solutions": [
@@ -28,8 +99,6 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Connect": [
     { label: "Contact Us", href: "/contact" },
     { label: "Partner Program", href: "/partner" },
-    { label: "Investor Relations", href: "/investors" },
-    { label: "Press Kit", href: "/press" },
   ],
 };
 
@@ -65,19 +134,9 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
               className="flex flex-col gap-4"
             >
-              {/* Logo */}
+              {/* Logo — breathing pulse + shimmer hover + glow */}
               <Link href="/">
-                <div className="flex items-center gap-3 cursor-pointer w-fit">
-                  <div
-                    className="w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, #0EA5E9, #D4A847)" }}
-                  >
-                    <span className="text-white font-bold text-base" style={{ fontFamily: "Space Grotesk" }}>K</span>
-                  </div>
-                  <span className="text-white font-bold text-lg" style={{ fontFamily: "Space Grotesk" }}>
-                    Krishu<span style={{ color: "#0EA5E9" }}>AI</span>
-                  </span>
-                </div>
+                <FooterLogo />
               </Link>
 
               <p className="text-white/40 text-sm leading-relaxed" style={{ fontFamily: "DM Sans" }}>
@@ -137,15 +196,18 @@ export default function Footer() {
               <div className="mono-label text-xs text-white/40 mb-1">
                 {category}
               </div>
-              {links.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  <span
-                    className="text-sm text-white/50 hover:text-white transition-colors duration-200 cursor-pointer block"
-                    style={{ fontFamily: "DM Sans" }}
-                  >
-                    {link.label}
-                  </span>
-                </Link>
+              {links.map((link, li) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -8 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 + li * 0.04, duration: 0.3 }}
+                >
+                  <Link href={link.href}>
+                    <FooterLink label={link.label} />
+                  </Link>
+                </motion.div>
               ))}
             </motion.div>
           ))}

@@ -7,9 +7,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
-import { toast } from "sonner";
+
 
 const pillars = ["All", "Governance", "EdTech", "Travel", "Entertainment"];
 
@@ -48,6 +49,20 @@ export default function SolutionLibraryPage() {
 
   return (
     <div className="min-h-screen" style={{ background: "oklch(0.08 0.015 240)" }}>
+      <SEO
+        title="AI Solution Library — Browse 40+ Sovereign AI Modules | KrishuAI"
+        description="Browse KrishuAI's complete library of 40+ sovereign AI solutions across Governance, EdTech, Travel & Hospitality, and Entertainment. Find the right AI module for your sector."
+        keywords="KrishuAI solution library, AI solutions India, sovereign AI modules, government AI solutions, EdTech AI solutions, travel AI solutions, entertainment AI India"
+        canonical="/solution-library"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://krishuaitech-murffryc.manus.space/" },
+            { "@type": "ListItem", position: 2, name: "Solution Library", item: "https://krishuaitech-murffryc.manus.space/solution-library" }
+          ]
+        }}
+      />
       <Navigation />
 
       {/* Hero */}
@@ -215,18 +230,19 @@ export default function SolutionLibraryPage() {
                       Learn More
                     </button>
                   </Link>
-                  <button
-                    onClick={() => toast.success("Demo requested!", { description: `We'll schedule a demo of ${s.name} within 48 hours.` })}
-                    className="flex-1 py-2 rounded-xl text-xs font-semibold transition-all duration-200 hover:scale-[1.02]"
+                  <a
+                    href={`mailto:hello@krishuai.com?subject=${encodeURIComponent('Demo Request: ' + s.name)}&body=${encodeURIComponent('Hi KrishuAI Team,\n\nI would like to request a demo of the following solution:\n\nSolution: ' + s.name + '\nPillar: ' + s.pillar + '\nExpected Deployment: ' + s.deployTime + '\n\nPlease get in touch to schedule a demo.\n\nThank you.')}`}
+                    className="flex-1 py-2 rounded-xl text-xs font-semibold transition-all duration-200 hover:scale-[1.02] inline-block text-center"
                     style={{
                       background: "rgba(255,255,255,0.05)",
                       border: "1px solid rgba(255,255,255,0.08)",
                       color: "rgba(255,255,255,0.6)",
                       fontFamily: "Space Grotesk",
+                      textDecoration: "none",
                     }}
                   >
                     Request Demo
-                  </button>
+                  </a>
                 </div>
               </motion.div>
             ))}

@@ -4,19 +4,53 @@
  * Design: "Digital Sovereignty" — agent-first visitor routing
  */
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
 import { toast } from "sonner";
 
+const ProfileIcons: Record<string, React.FC<{ color: string }>> = {
+  government: ({ color }) => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 22h18M6 18V10m4 8V10m4 8V10m4 8V10M2 10l10-7 10 7"/>
+    </svg>
+  ),
+  enterprise: ({ color }) => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/>
+    </svg>
+  ),
+  travel: ({ color }) => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 19 4c-1 0-1.5.5-3.5 2.5L8 8 .8 6.2c-.5-.1-.9.4-.6.8l5.5 5.5c.2.2.2.5 0 .7l-1.5 1.5c-.2.2-.5.2-.7 0L2 19l1 1 5.1-1.5c.2-.1.5 0 .7.2l5.5 5.5c.4.3.9-.1.8-.6z"/>
+    </svg>
+  ),
+  educator: ({ color }) => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+    </svg>
+  ),
+  investor: ({ color }) => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+    </svg>
+  ),
+  media: ({ color }) => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+    </svg>
+  ),
+};
+
 const profiles = [
-  { id: "government", label: "Government / IAS Officer", icon: "🏛️", accent: "#D4A847", glowRgb: "212, 168, 71", placeholder: "Describe your state or ministry's AI challenge...", cta: "Request Government Briefing" },
-  { id: "enterprise", label: "Enterprise / CXO", icon: "🏢", accent: "#0EA5E9", glowRgb: "14, 165, 233", placeholder: "Describe your organisation's AI transformation goal...", cta: "Schedule Executive Briefing" },
-  { id: "travel", label: "Hospitality / Travel Brand", icon: "✈️", accent: "#FBBF24", glowRgb: "251, 191, 36", placeholder: "Tell us about your guest experience challenge...", cta: "Request Travel AI Demo" },
-  { id: "educator", label: "Educator / EdTech Platform", icon: "🎓", accent: "#22D3EE", glowRgb: "34, 211, 238", placeholder: "Describe your learning platform or institution's needs...", cta: "Request EdTech Demo" },
-  { id: "investor", label: "Investor / VC", icon: "💼", accent: "#A78BFA", glowRgb: "167, 139, 250", placeholder: "Tell us about your investment focus and interest in KrishuAI...", cta: "Request Investor Deck" },
-  { id: "media", label: "Journalist / Researcher", icon: "📰", accent: "#FB923C", glowRgb: "251, 146, 60", placeholder: "Tell us about your story or research focus...", cta: "Request Press Materials" },
+  { id: "government", label: "Government / IAS Officer", accent: "#D4A847", glowRgb: "212, 168, 71", placeholder: "Describe your state or ministry's AI challenge...", cta: "Request Government Briefing" },
+  { id: "enterprise", label: "Enterprise / CXO", accent: "#0EA5E9", glowRgb: "14, 165, 233", placeholder: "Describe your organisation's AI transformation goal...", cta: "Schedule Executive Briefing" },
+  { id: "travel", label: "Hospitality / Travel Brand", accent: "#FBBF24", glowRgb: "251, 191, 36", placeholder: "Tell us about your guest experience challenge...", cta: "Request Travel AI Demo" },
+  { id: "educator", label: "Educator / EdTech Platform", accent: "#22D3EE", glowRgb: "34, 211, 238", placeholder: "Describe your learning platform or institution's needs...", cta: "Request EdTech Demo" },
+  { id: "investor", label: "Investor / VC", accent: "#A78BFA", glowRgb: "167, 139, 250", placeholder: "Tell us about your investment focus and interest in KrishuAI...", cta: "Request Investor Deck" },
+  { id: "media", label: "Journalist / Researcher", accent: "#FB923C", glowRgb: "251, 146, 60", placeholder: "Tell us about your story or research focus...", cta: "Request Press Materials" },
 ];
 
 const offices = [
@@ -47,6 +81,20 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen" style={{ background: "oklch(0.08 0.015 240)" }}>
+      <SEO
+        title="Contact KrishuAI — Partner with India's Sovereign AI Technology House"
+        description="Connect with KrishuAI to co-build sovereign AI solutions. Government bodies, enterprises, EdTech institutions, and travel brands — partner with India's Bharat Agentic Stack architects."
+        keywords="contact KrishuAI, KrishuAI partnership, AI consulting India, sovereign AI contact, Krishu Techventures contact, AI partner India"
+        canonical="/contact"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://krishuaitech-murffryc.manus.space/" },
+            { "@type": "ListItem", position: 2, name: "Contact", item: "https://krishuaitech-murffryc.manus.space/contact" }
+          ]
+        }}
+      />
       <Navigation />
 
       {/* Hero */}
@@ -122,7 +170,13 @@ export default function ContactPage() {
                         border: `1px solid ${selectedProfile === p.id ? `rgba(${p.glowRgb}, 0.35)` : "rgba(255,255,255,0.07)"}`,
                       }}
                     >
-                      <div className="text-lg mb-1">{p.icon}</div>
+                      <div className="mb-1.5">
+                        {ProfileIcons[p.id] && (
+                          React.createElement(ProfileIcons[p.id], {
+                            color: selectedProfile === p.id ? p.accent : "rgba(255,255,255,0.4)"
+                          })
+                        )}
+                      </div>
                       <div
                         className="text-xs font-semibold leading-tight"
                         style={{

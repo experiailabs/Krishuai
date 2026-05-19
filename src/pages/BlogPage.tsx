@@ -7,90 +7,65 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
+import SEO from "@/components/SEO";
 import Footer from "@/components/Footer";
+import { Link } from "wouter";
 import { toast } from "sonner";
+import { ARTICLES } from "./ArticlePage";
 
-const categories = ["All", "AI Policy", "Governance", "EdTech", "Travel AI", "Entertainment AI", "Technology"];
+const categories = ["All", "Technology Strategy", "Governance AI", "Governance & Policy", "AI EdTech", "AI Travel & Hospitality", "Entertainment AI"];
+
+// Real published articles from ArticlePage
+const realArticles = Object.values(ARTICLES).map((a) => ({
+  category: a.category,
+  accent: a.categoryColor,
+  date: a.publishedDate,
+  readTime: a.readTime,
+  featured: a.slug === "why-india-needs-a-sovereign-ai-stack",
+  title: a.title,
+  subtitle: a.subtitle,
+  excerpt: a.excerpt,
+  author: a.author,
+  authorRole: a.authorRole,
+  heroImage: a.heroImage,
+  slug: a.slug,
+}));
 
 const articles = [
+  ...realArticles,
   {
-    category: "AI Policy",
-    accent: "#D4A847",
-    date: "April 2026",
-    readTime: "8 min read",
-    featured: true,
-    title: "Why India Cannot Afford Foreign AI Dependency",
-    subtitle: "The strategic, economic, and constitutional case for AI sovereignty",
-    excerpt:
-      "As global AI superpowers race to embed their infrastructure into India's digital backbone, a critical question emerges: what happens when the intelligence layer of a nation's governance is owned by a foreign corporation? This is not a hypothetical — it is the trajectory India is currently on.",
-    author: "Arjun Mehta",
-    authorRole: "Head of Governance & Policy AI",
-  },
-  {
-    category: "Governance",
-    accent: "#D4A847",
-    date: "March 2026",
-    readTime: "6 min read",
-    featured: false,
-    title: "Digital Twin States: The Future of Evidence-Based Governance",
-    subtitle: "How AI simulation is transforming policy-making in India",
-    excerpt:
-      "For decades, Indian policymakers have governed with yesterday's data. A census conducted once a decade. Agricultural surveys completed months after harvest. Healthcare resource allocation based on projections, not reality. The Digital Twin State changes all of this.",
-    author: "Krishu Sharma",
-    authorRole: "Founder & Chief AI Architect",
-  },
-  {
-    category: "EdTech",
-    accent: "#22D3EE",
-    date: "March 2026",
-    readTime: "7 min read",
-    featured: false,
-    title: "Teaching 500 Million Students: The Personalisation Imperative",
-    subtitle: "Why one-size-fits-all education is failing India's children",
-    excerpt:
-      "India's education system serves 500 million students across 22 languages, 28 states, and an economic spectrum that ranges from rural subsistence to urban affluence. The idea that a single curriculum, delivered in a single language, at a single pace, can serve this population is a fiction we can no longer afford.",
-    author: "Priya Nair",
-    authorRole: "Chief Experience Officer",
-  },
-  {
-    category: "Technology",
-    accent: "#0EA5E9",
-    date: "February 2026",
+    category: "Governance AI",
+    accent: "#10B981",
+    date: "May 2025",
     readTime: "10 min read",
     featured: false,
-    title: "The Bharat Agentic Stack: Architecture for a Billion Users",
-    subtitle: "A technical deep-dive into India's sovereign AI infrastructure",
+    title: "Digital Twin States: How AI Is Creating a Mirror India for Governance",
+    subtitle: "The Architecture of Real-Time Sovereign Intelligence",
     excerpt:
-      "Building AI for India is not the same as building AI for the West and translating it. The scale, linguistic diversity, infrastructure constraints, and constitutional requirements of India demand a fundamentally different architecture. This is what we built.",
-    author: "Krishu Sharma",
-    authorRole: "Founder & Chief AI Architect",
+      "Somewhere in a government control room in Hubballi-Dharwad, operators are watching two cities simultaneously — the physical one outside their windows, and its perfect digital mirror on the screens in front of them. This is the beginning of Digital Twin States.",
+    author: "Shailendra Kumar",
+    authorRole: "Founder & Chief AI Architect, KrishuAI",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_digital_twin_hero-2u8LbEGHxxa9sqc7tLM46f.webp",
+    slug: "digital-twin-states-india-governance",
   },
+
   {
-    category: "Travel AI",
-    accent: "#FBBF24",
-    date: "February 2026",
-    readTime: "5 min read",
+    category: "Technology Strategy",
+    accent: "#3B82F6",
+    date: "May 2025",
+    readTime: "11 min read",
     featured: false,
-    title: "The AI Concierge Revolution in Indian Hospitality",
-    subtitle: "How multimodal AI is redefining the guest experience",
+    title: "Bharat Agentic Stack: The Technical Architecture of India's Sovereign AI Future",
+    subtitle: "From Silicon to Citizen — A Five-Layer Blueprint",
     excerpt:
-      "India's luxury hospitality sector is at an inflection point. International guests arrive with expectations shaped by global brands. Domestic guests bring cultural nuances that no foreign AI system understands. The solution is not to choose between them — it is to build AI that serves both.",
-    author: "Zara Al-Rashid",
-    authorRole: "Director, ExperiAI Labs",
+      "India's AI ambition is not merely to adopt artificial intelligence — it is to own the entire stack. From the silicon that runs the models to the agents that serve its 1.4 billion citizens, the Bharat Agentic Stack is the technical blueprint for that ambition.",
+    author: "Shailendra Kumar",
+    authorRole: "Founder & Chief AI Architect, KrishuAI",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_agentic_stack_hero-LaHSrWeWG38DSWfASECMdG.webp",
+    slug: "bharat-agentic-stack-technical-architecture",
   },
-  {
-    category: "Entertainment AI",
-    accent: "#A78BFA",
-    date: "January 2026",
-    readTime: "6 min read",
-    featured: false,
-    title: "Bollywood Meets AI: The Generative Media Revolution",
-    subtitle: "How AI is transforming India's ₹19,000 crore film industry",
-    excerpt:
-      "India produces more films than any other country on earth. Yet the production pipeline remains stubbornly manual — script evaluation by gut instinct, localisation by human translators, audience prediction by experience. Generative AI is about to change every one of these assumptions.",
-    author: "Krishu Sharma",
-    authorRole: "Founder & Chief AI Architect",
-  },
+
+
 ];
 
 export default function BlogPage() {
@@ -104,6 +79,24 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen" style={{ background: "oklch(0.08 0.015 240)" }}>
+      <SEO
+        title="AI Insights & Research | KrishuAI Intelligence Dispatch"
+        description="Expert analysis on sovereign AI, Bharat Agentic Stack, AI governance, EdTech AI, Travel AI, and Bollywood generative media — from India's leading AI technology house, KrishuAI."
+        keywords="KrishuAI insights, sovereign AI India blog, Bharat Agentic Stack articles, AI governance India, EdTech AI India, Bollywood AI, travel AI India, Shailendra Kumar AI"
+        canonical="/blog"
+        ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article1_hero-mJjfiFEbb8tFyojBRkSa6h.webp"
+        ogImageAlt="KrishuAI Intelligence Dispatch — Expert AI analysis and research from India's sovereign AI technology house"
+        ogImageWidth={1200}
+        ogImageHeight={630}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://krishuaitech-murffryc.manus.space/" },
+            { "@type": "ListItem", position: 2, name: "Intelligence Dispatch", item: "https://krishuaitech-murffryc.manus.space/blog" }
+          ]
+        }}
+      />
       <Navigation />
 
       {/* Hero */}
@@ -165,13 +158,19 @@ export default function BlogPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="p-8 lg:p-10 rounded-3xl cursor-pointer"
+              className="rounded-3xl cursor-pointer overflow-hidden"
               style={{
                 background: "linear-gradient(135deg, rgba(212, 168, 71, 0.08) 0%, rgba(14, 165, 233, 0.04) 100%)",
                 border: "1px solid rgba(212, 168, 71, 0.2)",
               }}
-              onClick={() => toast.info("Full article coming soon!", { description: "Subscribe to The Intelligence Dispatch to be notified." })}
             >
+              {featured.heroImage && (
+                <div className="relative h-64 md:h-80 overflow-hidden">
+                  <img src={featured.heroImage} alt={featured.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050A14] via-[#050A14]/40 to-transparent" />
+                </div>
+              )}
+              <div className="p-8 lg:p-10" onClick={() => featured.slug ? window.location.href = `/insights/${featured.slug}` : toast.info("Full article coming soon!")}>
               <div className="flex items-center gap-3 mb-5">
                 <span
                   className="text-xs px-3 py-1 rounded-full"
@@ -230,6 +229,7 @@ export default function BlogPage() {
                   Read Article →
                 </span>
               </div>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -268,15 +268,45 @@ export default function BlogPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="p-6 rounded-2xl flex flex-col gap-4 cursor-pointer group"
+                whileHover={{ y: -5, scale: 1.015 }}
+                transition={{ duration: 0.4, delay: i * 0.08, type: "spring", stiffness: 300, damping: 24 }}
+                className="p-6 rounded-2xl flex flex-col gap-4 cursor-pointer group relative overflow-hidden"
                 style={{
                   background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  transition: "border-color 0.3s ease",
+                  border: `1px solid ${article.accent}22`,
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+                  transition: "border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease",
                 }}
-                onClick={() => toast.info("Full article coming soon!", { description: "Subscribe to The Intelligence Dispatch to be notified." })}
+                onHoverStart={(e) => {
+                  const el = e.target as HTMLElement;
+                  const card = el.closest(".group") as HTMLElement;
+                  if (card) {
+                    card.style.borderColor = `${article.accent}55`;
+                    card.style.boxShadow = `0 0 30px ${article.accent}18, 0 20px 50px rgba(0,0,0,0.35)`;
+                    card.style.background = `${article.accent}06`;
+                  }
+                }}
+                onHoverEnd={(e) => {
+                  const el = e.target as HTMLElement;
+                  const card = el.closest(".group") as HTMLElement;
+                  if (card) {
+                    card.style.borderColor = `${article.accent}22`;
+                    card.style.boxShadow = "0 4px 20px rgba(0,0,0,0.2)";
+                    card.style.background = "rgba(255,255,255,0.03)";
+                  }
+                }}
+                onClick={() => article.slug ? (window.location.href = `/insights/${article.slug}`) : toast.info("Full article coming soon!", { description: "Subscribe to The Intelligence Dispatch to be notified." })}
               >
+                {article.heroImage && (
+                  <div className="-mx-6 -mt-6 mb-2 h-40 overflow-hidden rounded-t-2xl">
+                    <img
+                      src={article.heroImage}
+                      alt={article.title}
+                      className="w-full h-full object-cover"
+                      style={{ transition: "transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94)" }}
+                    />
+                  </div>
+                )}
                 <div className="flex items-center gap-2 flex-wrap">
                   <span
                     className="text-xs px-2.5 py-1 rounded-full"
@@ -314,26 +344,31 @@ export default function BlogPage() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <div
-                      className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                      style={{
-                        background: `${article.accent}20`,
-                        color: article.accent,
-                        fontFamily: "Space Grotesk",
-                      }}
-                    >
-                      {article.author.split(" ").map((n) => n[0]).join("")}
-                    </div>
+                    <img
+                      src="/manus-storage/shailendra_kumar_headshot_5d0bf9c3.webp"
+                      alt={article.author}
+                      className="w-6 h-6 rounded-full object-cover flex-shrink-0"
+                      style={{ border: `1px solid ${article.accent}40` }}
+                    />
                     <span className="text-xs text-white/35" style={{ fontFamily: "DM Sans" }}>
                       {article.author}
                     </span>
                   </div>
-                  <span
-                    className="text-xs transition-colors"
+                  <motion.span
+                    className="text-xs flex items-center gap-0.5"
                     style={{ color: article.accent, fontFamily: "DM Sans" }}
+                    whileHover={{ x: 3 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 18 }}
                   >
-                    Read →
-                  </span>
+                    Read
+                    <motion.span
+                      className="inline-block"
+                      animate={{}}
+                      whileHover={{ x: 2 }}
+                    >
+                       →
+                    </motion.span>
+                  </motion.span>
                 </div>
               </motion.div>
             ))}

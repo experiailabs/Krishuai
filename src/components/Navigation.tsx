@@ -1,8 +1,17 @@
 /*
  * KrishuAI — Navigation Component
  * Design: Floating glassmorphic pill nav with blur background
- * Behavior: Shrinks on scroll, highlights active section
- * New: Solutions dropdown with links to all 4 pillar deep-dive pages
+ *
+ * Logo Animations:
+ *   - Entrance: slides in from left, fades in on mount
+ *   - Hover: 1.04× scale + teal drop-shadow glow + diagonal shimmer sweep
+ *   - Scroll-shrink: logo height transitions 36px → 28px when scrolled
+ *
+ * Nav Interactions:
+ *   - Links: animated sliding underline on hover (left → right)
+ *   - Solutions dropdown: staggered item entrance with slide-in
+ *   - CTA button: shimmer sweep + scale on hover
+ *   - Mobile hamburger: smooth morph to X
  */
 
 import { useEffect, useState, useRef } from "react";
@@ -17,17 +26,66 @@ const solutions = [
 ];
 
 const homeNavItems = [
-  { label: "Home", href: "#hero" },
-  { label: "Pillars", href: "#pillars" },
-  { label: "Approach", href: "#approach" },
-  { label: "Impact", href: "#impact" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#hero", isScroll: true },
+  { label: "Pillars", href: "#pillars", isScroll: true },
+  { label: "Approach", href: "#approach", isScroll: true },
+  { label: "About", href: "/about", isScroll: false },
+  { label: "Contact", href: "#contact", isScroll: true },
 ];
+
+// ── Animated nav link with sliding underline ─────────────────────────────────
+function NavLink({
+  children,
+  onClick,
+  asSpan = false,
+}: {
+  children: React.ReactNode;
+  onClick?: () => void;
+  asSpan?: boolean;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const commonProps = {
+    onMouseEnter: () => setHovered(true),
+    onMouseLeave: () => setHovered(false),
+    className: "relative px-3 py-1.5 text-sm transition-colors duration-200 cursor-pointer select-none",
+    style: {
+      fontFamily: "DM Sans",
+      color: hovered ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.65)",
+      display: "inline-flex",
+      alignItems: "center",
+    } as React.CSSProperties,
+  };
+  const underline = (
+    <motion.span
+      className="absolute bottom-0.5 left-3 right-3 h-px rounded-full"
+      style={{ background: "linear-gradient(90deg, #0EA5E9, #38BDF8)" }}
+      initial={{ scaleX: 0, originX: 0 }}
+      animate={{ scaleX: hovered ? 1 : 0, originX: 0 }}
+      transition={{ duration: 0.22, ease: "easeOut" }}
+    />
+  );
+  if (asSpan) {
+    return (
+      <span {...commonProps}>
+        {children}
+        {underline}
+      </span>
+    );
+  }
+  return (
+    <button onClick={onClick} {...commonProps}>
+      {children}
+      {/* Sliding underline */}
+      {underline}
+    </button>
+  );
+}
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [logoHovered, setLogoHovered] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [location] = useLocation();
   const isHome = location === "/";
@@ -78,48 +136,79 @@ export default function Navigation() {
             : "rgba(5, 10, 20, 0.6)",
         }}
       >
-        {/* Logo */}
+        {/* ── Logo ─────────────────────────────────────────────────────────── */}
         <Link href="/">
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="w-7 h-7 rounded-lg flex items-center justify-center relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, #0EA5E9, #D4A847)" }}>
-              <span className="text-white font-bold text-xs" style={{ fontFamily: 'Space Grotesk' }}>K</span>
-            </div>
-            <span className="text-white font-semibold text-sm hidden sm:block" style={{ fontFamily: 'Space Grotesk' }}>
-              Krishu<span className="text-gradient-blue">AI</span>
-            </span>
-          </div>
+          <motion.div
+            className="flex items-center cursor-pointer relative overflow-hidden"
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.15 }}
+            onMouseEnter={() => setLogoHovered(true)}
+            onMouseLeave={() => setLogoHovered(false)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            style={{
+              filter: logoHovered
+                ? "drop-shadow(0 0 8px rgba(14, 165, 233, 0.55)) drop-shadow(0 0 20px rgba(14, 165, 233, 0.25))"
+                : "drop-shadow(0 0 0px transparent)",
+              transition: "filter 0.35s ease",
+            }}
+          >
+            <motion.img
+              src="/images/logo_nav_white.png"
+              alt="Krishu Techventures"
+              animate={{ height: scrolled ? 28 : 36 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              style={{ width: "auto", display: "block" }}
+            />
+
+            {/* Shimmer sweep on hover */}
+            <motion.span
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.35) 50%, transparent 65%)",
+                backgroundSize: "200% 100%",
+              }}
+              initial={{ backgroundPosition: "-100% 0" }}
+              animate={
+                logoHovered
+                  ? { backgroundPosition: "200% 0" }
+                  : { backgroundPosition: "-100% 0" }
+              }
+              transition={{ duration: 0.55, ease: "easeInOut" }}
+            />
+          </motion.div>
         </Link>
 
-        {/* Desktop Nav */}
+        {/* ── Desktop Nav ───────────────────────────────────────────────────── */}
         <nav className="hidden md:flex items-center gap-1">
-          {homeNavItems.map((item) => (
-            <button
-              key={item.label}
-              onClick={() => scrollTo(item.href)}
-              className="px-3 py-1.5 text-sm text-white/70 hover:text-white rounded-full hover:bg-white/8 transition-all duration-200"
-              style={{ fontFamily: 'DM Sans' }}
-            >
-              {item.label}
-            </button>
-          ))}
+          {homeNavItems.map((item) =>
+            item.isScroll ? (
+              <NavLink key={item.label} onClick={() => scrollTo(item.href)}>
+                {item.label}
+              </NavLink>
+            ) : (
+              <Link key={item.label} href={item.href}>
+                <NavLink asSpan>{item.label}</NavLink>
+              </Link>
+            )
+          )}
 
           {/* Solutions Dropdown */}
           <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setSolutionsOpen(!solutionsOpen)}
-              className="px-3 py-1.5 text-sm text-white/70 hover:text-white rounded-full hover:bg-white/8 transition-all duration-200 flex items-center gap-1"
-              style={{ fontFamily: 'DM Sans' }}
-            >
-              Solutions
-              <motion.span
-                animate={{ rotate: solutionsOpen ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-                className="text-xs"
-              >
-                ▾
-              </motion.span>
-            </button>
+            <NavLink onClick={() => setSolutionsOpen(!solutionsOpen)}>
+              <span className="flex items-center gap-1">
+                Solutions
+                <motion.span
+                  animate={{ rotate: solutionsOpen ? 180 : 0 }}
+                  transition={{ duration: 0.22 }}
+                  className="text-xs inline-block"
+                >
+                  ▾
+                </motion.span>
+              </span>
+            </NavLink>
 
             <AnimatePresence>
               {solutionsOpen && (
@@ -135,27 +224,43 @@ export default function Navigation() {
                     boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
                   }}
                 >
-                  {solutions.map((sol) => (
-                    <Link key={sol.href} href={sol.href}>
-                      <div
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-150 hover:bg-white/5 group"
-                        onClick={() => setSolutionsOpen(false)}
-                      >
-                        <span className="text-base">{sol.icon}</span>
-                        <span
-                          className="text-sm text-white/70 group-hover:text-white transition-colors"
-                          style={{ fontFamily: 'DM Sans' }}
+                  {solutions.map((sol, i) => (
+                    <motion.div
+                      key={sol.href}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.055, duration: 0.18 }}
+                    >
+                      <Link href={sol.href}>
+                        <div
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer transition-all duration-150 hover:bg-white/5 group"
+                          onClick={() => setSolutionsOpen(false)}
                         >
-                          {sol.label}
-                        </span>
-                        <span
-                          className="ml-auto text-xs opacity-0 group-hover:opacity-100 transition-opacity"
-                          style={{ color: sol.accent }}
-                        >
-                          →
-                        </span>
-                      </div>
-                    </Link>
+                          <motion.span
+                            className="text-base"
+                            whileHover={{ scale: 1.2, rotate: 5 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                          >
+                            {sol.icon}
+                          </motion.span>
+                          <span
+                            className="text-sm text-white/70 group-hover:text-white transition-colors"
+                            style={{ fontFamily: "DM Sans" }}
+                          >
+                            {sol.label}
+                          </span>
+                          <motion.span
+                            className="ml-auto text-xs"
+                            style={{ color: sol.accent }}
+                            initial={{ opacity: 0, x: -4 }}
+                            whileHover={{ opacity: 1, x: 0 }}
+                            animate={{}}
+                          >
+                            →
+                          </motion.span>
+                        </div>
+                      </Link>
+                    </motion.div>
                   ))}
                 </motion.div>
               )}
@@ -163,82 +268,133 @@ export default function Navigation() {
           </div>
         </nav>
 
-        {/* CTA */}
-        <button
+        {/* ── CTA Button with shimmer ───────────────────────────────────────── */}
+        <motion.button
           onClick={() => scrollTo("#contact")}
-          className="hidden md:flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 relative overflow-hidden"
+          className="hidden md:flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium relative overflow-hidden"
           style={{
             background: "linear-gradient(135deg, #0EA5E9, #0284C7)",
-            fontFamily: 'Space Grotesk',
-            color: 'white',
+            fontFamily: "Space Grotesk",
+            color: "white",
           }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
-          Get Started
-        </button>
+          {/* Shimmer layer */}
+          <motion.span
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.28) 50%, transparent 70%)",
+              backgroundSize: "200% 100%",
+            }}
+            initial={{ backgroundPosition: "-100% 0" }}
+            whileHover={{ backgroundPosition: "200% 0" }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          />
+          <span className="relative z-10">Get Started</span>
+        </motion.button>
 
-        {/* Mobile hamburger */}
+        {/* ── Mobile hamburger ─────────────────────────────────────────────── */}
         <button
-          className="md:hidden text-white/70 hover:text-white p-1"
+          className="md:hidden text-white/70 hover:text-white p-1 transition-colors duration-200"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          <div className="w-5 flex flex-col gap-1">
-            <span className={`block h-0.5 bg-current transition-all duration-200 ${mobileOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-            <span className={`block h-0.5 bg-current transition-all duration-200 ${mobileOpen ? 'opacity-0' : ''}`} />
-            <span className={`block h-0.5 bg-current transition-all duration-200 ${mobileOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+          <div className="w-5 flex flex-col gap-1.5 relative h-4">
+            <motion.span
+              className="block h-0.5 bg-current rounded-full absolute top-0 w-full"
+              animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+            <motion.span
+              className="block h-0.5 bg-current rounded-full absolute top-1/2 -translate-y-1/2 w-full"
+              animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              className="block h-0.5 bg-current rounded-full absolute bottom-0 w-full"
+              animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.25 }}
+            />
           </div>
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* ── Mobile menu ──────────────────────────────────────────────────────── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
+            transition={{ duration: 0.22 }}
             className="absolute top-full mt-2 left-4 right-4 glass-card rounded-2xl p-4 flex flex-col gap-1"
             style={{ background: "rgba(5, 10, 20, 0.97)" }}
           >
-            {homeNavItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => { scrollTo(item.href); setMobileOpen(false); }}
-                className="text-left px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/8 rounded-xl transition-all duration-200 text-sm"
-                style={{ fontFamily: 'DM Sans' }}
-              >
-                {item.label}
-              </button>
-            ))}
+            {homeNavItems.map((item, i) =>
+              item.isScroll ? (
+                <motion.button
+                  key={item.label}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  onClick={() => { scrollTo(item.href); setMobileOpen(false); }}
+                  className="text-left px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/8 rounded-xl transition-all duration-200 text-sm"
+                  style={{ fontFamily: "DM Sans" }}
+                >
+                  {item.label}
+                </motion.button>
+              ) : (
+                <Link key={item.label} href={item.href}>
+                  <motion.div
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    className="text-left px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/8 rounded-xl transition-all duration-200 text-sm cursor-pointer"
+                    style={{ fontFamily: "DM Sans" }}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {item.label}
+                  </motion.div>
+                </Link>
+              )
+            )}
 
             {/* Mobile Solutions */}
             <div className="mt-1 border-t border-white/8 pt-2">
               <div className="px-4 py-1.5 mono-label text-xs text-white/30">Solutions</div>
-              {solutions.map((sol) => (
+              {solutions.map((sol, i) => (
                 <Link key={sol.href} href={sol.href}>
-                  <div
+                  <motion.div
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: (homeNavItems.length + i) * 0.05 }}
                     className="flex items-center gap-3 px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/8 rounded-xl transition-all duration-200 text-sm cursor-pointer"
-                    style={{ fontFamily: 'DM Sans' }}
+                    style={{ fontFamily: "DM Sans" }}
                     onClick={() => setMobileOpen(false)}
                   >
                     <span>{sol.icon}</span>
                     <span>{sol.label}</span>
-                  </div>
+                  </motion.div>
                 </Link>
               ))}
             </div>
 
-            <button
+            <motion.button
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
               onClick={() => { scrollTo("#contact"); setMobileOpen(false); }}
-              className="mt-2 px-4 py-2.5 rounded-xl text-sm font-medium text-white"
+              className="mt-2 px-4 py-2.5 rounded-xl text-sm font-medium text-white relative overflow-hidden"
               style={{
                 background: "linear-gradient(135deg, #0EA5E9, #0284C7)",
-                fontFamily: 'Space Grotesk',
+                fontFamily: "Space Grotesk",
               }}
             >
               Get Started
-            </button>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
