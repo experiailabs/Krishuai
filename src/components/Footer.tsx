@@ -28,7 +28,7 @@ function FooterLogo() {
     >
       {/* Breathing pulse when idle */}
       <motion.img
-        src="/manus-storage/logo_footer_white_80400ad3.png"
+        src="/images/logo_icon_512.png"
         alt="Krishu Techventures"
         style={{ height: '48px', width: 'auto', display: 'block' }}
         animate={!hovered ? { opacity: [1, 0.82, 1] } : { opacity: 1 }}
