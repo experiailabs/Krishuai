@@ -152,20 +152,27 @@ export default function ShailendraKumarPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#050A14] via-[#050A14]/60 to-[#050A14]/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050A14]/80 via-transparent to-transparent" />
 
-        {/* Back link */}
-        <div className="absolute top-28 left-0 right-0 z-10">
+        {/* Back link — breadcrumb below nav */}
+        <div className="absolute top-24 left-0 right-0 z-20">
           <div className="max-w-6xl mx-auto px-6">
-            <Link href="/blog">
-              <motion.span
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-teal-400 transition-colors cursor-pointer group"
-              >
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                Back to Insights
-              </motion.span>
-            </Link>
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className="flex items-center gap-1.5 text-xs text-white/40"
+              style={{ fontFamily: "'DM Mono', monospace" }}
+            >
+              <Link href="/">
+                <span className="hover:text-teal-400 transition-colors cursor-pointer">KrishuAI</span>
+              </Link>
+              <span>/</span>
+              <Link href="/about">
+                <span className="hover:text-teal-400 transition-colors cursor-pointer">About</span>
+              </Link>
+              <span>/</span>
+              <span className="text-white/60">Shailendra Kumar</span>
+            </motion.div>
+
           </div>
         </div>
 
