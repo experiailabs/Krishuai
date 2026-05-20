@@ -69,6 +69,7 @@ const team = [
     photo: "/images/ShailendraKumar.png",
     linkedin: "https://www.linkedin.com/in/shaily/",
     badge: "CAIO",
+    bioLink: "/team/shailendra-kumar",
   },
   {
     name: "Swapnil Kumar",

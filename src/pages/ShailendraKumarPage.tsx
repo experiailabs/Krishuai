@@ -17,7 +17,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/author_shailendra_hero_bg-W8Y4KdrUdyD6veuSeQB4fy.webp";
-const HEADSHOT = "/manus-storage/shailendra_kumar_headshot_5d0bf9c3.webp";
+const HEADSHOT = "/images/shailendra_kumar_headshot.png";
 
 const stats = [
   { value: "AU$6B+", label: "Client Value Delivered", icon: TrendingUp },

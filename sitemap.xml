@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  KrishuAI Sitemap
+  Domain: https://krishuaitech-murffryc.manus.space
+  Last updated: 2026-05-18
+  Includes: Standard sitemap, Google Image sitemap, Google News sitemap extensions
+  Spec: https://www.sitemaps.org/protocol.html
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xsi:schemaLocation="
+          http://www.sitemaps.org/schemas/sitemap/0.9
+          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+          http://www.google.com/schemas/sitemap-image/1.1
+          http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd
+          http://www.google.com/schemas/sitemap-news/0.9
+          http://www.google.com/schemas/sitemap-news/0.9/sitemap-news.xsd">
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CORE PAGES
+       ═══════════════════════════════════════════════════════════════════════ -->
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article1_hero-mJjfiFEbb8tFyojBRkSa6h.webp</image:loc>
+      <image:caption>KrishuAI — India's Sovereign AI Technology House: Bharat Agentic Stack rising from the Indian subcontinent</image:caption>
+      <image:title>KrishuAI Homepage</image:title>
+    </image:image>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/about</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog / Insights Index -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/blog</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/contact</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Bharat Agentic Stack -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/bharat-stack</loc>
+    <lastmod>2025-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Research & Publications -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/research</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Our Philosophy -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/philosophy</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- AI Solution Library -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/solution-library</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Partner -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/partner</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Careers -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/careers</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Legal — low priority, crawlable but deprioritised -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/privacy</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/terms</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/cookies</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SOLUTION PILLAR PAGES
+       ═══════════════════════════════════════════════════════════════════════ -->
+
+  <!-- AI for Governance -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/solutions/governance</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/pillar_governance-gEMvZ7T8NLwiDMNyMovAvK.webp</image:loc>
+      <image:caption>KrishuAI AI for Governance — holographic AI interfaces over Indian government buildings representing the Bharat National Intelligence Layer</image:caption>
+      <image:title>AI for Governance | KrishuAI</image:title>
+    </image:image>
+  </url>
+
+  <!-- AI EdTech -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/solutions/edtech</loc>
+    <lastmod>2025-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/pillar_edtech-mDfQ3ELRBu4wvYwuoZbNEe.webp</image:loc>
+      <image:caption>KrishuAI AI EdTech — multilingual learning agent hologram in an Indian classroom representing sovereign education AI</image:caption>
+      <image:title>AI EdTech | KrishuAI</image:title>
+    </image:image>
+  </url>
+
+  <!-- AI Travel & Hospitality -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/solutions/travel</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/pillar_travel-DkMUMrhPssqX3BTGRci2AA.webp</image:loc>
+      <image:caption>KrishuAI AI Travel &amp; Hospitality — multimodal AI concierge system for India's travel and hospitality sector</image:caption>
+      <image:title>AI Travel &amp; Hospitality | KrishuAI</image:title>
+    </image:image>
+  </url>
+
+  <!-- AI Entertainment -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/solutions/entertainment</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/pillar_entertainment-GiFA2EaBejPQVCMdS8Qg4X.webp</image:loc>
+      <image:caption>KrishuAI AI Entertainment — generative media and storytelling infrastructure for Bollywood and India's film industry</image:caption>
+      <image:title>AI Entertainment | KrishuAI</image:title>
+    </image:image>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       INSIGHTS ARTICLES
+       Priority 0.9 for the flagship article, 0.85 for all others.
+       Includes Google Image Sitemap and Google News Sitemap extensions.
+       ═══════════════════════════════════════════════════════════════════════ -->
+
+  <!-- Article 1: Why India Needs a Sovereign AI Stack -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/insights/why-india-needs-a-sovereign-ai-stack</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article1_hero-mJjfiFEbb8tFyojBRkSa6h.webp</image:loc>
+      <image:caption>Six-layer sovereign AI stack rising from the Indian subcontinent as a glowing holographic monument</image:caption>
+      <image:title>Why India Needs a Sovereign AI Stack</image:title>
+    </image:image>
+    <news:news>
+      <news:publication>
+        <news:name>KrishuAI Intelligence Dispatch</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-01</news:publication_date>
+      <news:title>Why India Needs a Sovereign AI Stack</news:title>
+      <news:keywords>sovereign AI India, Bharat Agentic Stack, Indian AI architecture, AI sovereignty, KrishuAI</news:keywords>
+    </news:news>
+  </url>
+
+  <!-- Article 2: How AI is Transforming Government Services in India -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/insights/ai-transforming-government-services-india</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article2_hero-L6zN23oXhHatjbLP5FFaoN.webp</image:loc>
+      <image:caption>Indian government building with AI holographic interfaces and a citizen interacting with digital government services</image:caption>
+      <image:title>How AI is Transforming Government Services in India</image:title>
+    </image:image>
+    <news:news>
+      <news:publication>
+        <news:name>KrishuAI Intelligence Dispatch</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-05</news:publication_date>
+      <news:title>How AI is Transforming Government Services in India</news:title>
+      <news:keywords>AI governance India, government AI India, citizen services AI, predictive policy India, KrishuAI</news:keywords>
+    </news:news>
+  </url>
+
+  <!-- Article 3: Sovereign Learning Agents — EdTech -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/insights/sovereign-learning-agents-india-edtech</loc>
+    <lastmod>2025-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_edtech_hero-o5BV2twnV6eY55f4YbmJoB.webp</image:loc>
+      <image:caption>Young Indian student interacting with a multilingual AI tutor hologram in a rural classroom setting</image:caption>
+      <image:title>Sovereign Learning Agents: How AI Is Rewriting India's EdTech Story</image:title>
+    </image:image>
+    <news:news>
+      <news:publication>
+        <news:name>KrishuAI Intelligence Dispatch</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-08</news:publication_date>
+      <news:title>Sovereign Learning Agents: How AI Is Rewriting India's EdTech Story</news:title>
+      <news:keywords>AI EdTech India, sovereign learning agents, multilingual education AI, adaptive learning India, KrishuAI EdTech</news:keywords>
+    </news:news>
+  </url>
+
+  <!-- Article 4: Hyper-Personalised Journeys — Travel AI -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/insights/ai-hyper-personalization-india-travel-hospitality</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_travel_hero-oZEfQeFENy6go64Kh4zJxq.webp</image:loc>
+      <image:caption>Traveler interacting with an AI concierge hologram at the Taj Mahal with personalized itinerary and cultural insights displayed</image:caption>
+      <image:title>Hyper-Personalised Journeys: How AI Is Reinventing India's Travel Economy</image:title>
+    </image:image>
+    <news:news>
+      <news:publication>
+        <news:name>KrishuAI Intelligence Dispatch</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-12</news:publication_date>
+      <news:title>Hyper-Personalised Journeys: How AI Is Reinventing India's Travel Economy</news:title>
+      <news:keywords>AI travel India, hospitality AI India, multimodal concierge AI, travel personalisation India, KrishuAI travel</news:keywords>
+    </news:news>
+  </url>
+
+  <!-- Article 5: Bollywood Meets AI — Entertainment -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/insights/bollywood-meets-ai-generative-media-revolution</loc>
+    <lastmod>2025-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_entertainment_hero-Pvp92ihwayPZkLzP7BR6P6.webp</image:loc>
+      <image:caption>Bollywood director on an AI-powered film set with holographic script analysis panels and AI-rendered mythological scene on a massive LED volume stage</image:caption>
+      <image:title>Bollywood Meets AI: The Generative Media Revolution</image:title>
+    </image:image>
+    <news:news>
+      <news:publication>
+        <news:name>KrishuAI Intelligence Dispatch</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-15</news:publication_date>
+      <news:title>Bollywood Meets AI: The Generative Media Revolution</news:title>
+      <news:keywords>AI entertainment India, Bollywood AI, generative media India, AI film production India, AI dubbing India, KrishuAI entertainment</news:keywords>
+    </news:news>
+  </url>
+
+
+  <!-- Article 6: Digital Twin States — Governance AI -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/insights/digital-twin-states-india-governance</loc>
+    <lastmod>2025-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_digital_twin_hero-2u8LbEGHxxa9sqc7tLM46f.webp</image:loc>
+      <image:caption>Aerial view of an Indian smart city split between its physical form and a glowing digital twin holographic overlay, with government operators in a control room</image:caption>
+      <image:title>Digital Twin States: How AI Is Creating a Mirror India for Governance</image:title>
+    </image:image>
+    <news:news>
+      <news:publication>
+        <news:name>KrishuAI Intelligence Dispatch</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-08</news:publication_date>
+      <news:title>Digital Twin States: How AI Is Creating a Mirror India for Governance</news:title>
+      <news:keywords>digital twin India, smart city digital twin, India governance AI, digital twin states, urban digital twin, India smart grid digital twin, KrishuAI</news:keywords>
+    </news:news>
+  </url>
+
+  <!-- Article 7: Bharat Agentic Stack — Technology Strategy -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/insights/bharat-agentic-stack-technical-architecture</loc>
+    <lastmod>2025-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_agentic_stack_hero-LaHSrWeWG38DSWfASECMdG.webp</image:loc>
+      <image:caption>A five-layer AI infrastructure pyramid rising from the Indian subcontinent map at night, with the Ashoka Chakra in the background and data streams flowing between layers</image:caption>
+      <image:title>Bharat Agentic Stack: The Technical Architecture of India's Sovereign AI Future</image:title>
+    </image:image>
+    <news:news>
+      <news:publication>
+        <news:name>KrishuAI Intelligence Dispatch</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2025-05-10</news:publication_date>
+      <news:title>Bharat Agentic Stack: The Technical Architecture of India's Sovereign AI Future</news:title>
+      <news:keywords>Bharat Agentic Stack, India sovereign AI stack, IndiaAI Mission, Sarvam AI, India LLM infrastructure, AI agent architecture India, KrishuAI</news:keywords>
+    </news:news>
+  </url>
+
+  <!-- Author Bio Page -->
+  <url>
+    <loc>https://krishuaitech-murffryc.manus.space/team/shailendra-kumar</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/author_shailendra_hero_bg-W8Y4KdrUdyD6veuSeQB4fy.webp</image:loc>
+      <image:caption>Shailendra Kumar — Chief AI Officer and Global AI Strategist, KrishuAI Techventures</image:caption>
+      <image:title>Shailendra Kumar Author Bio</image:title>
+    </image:image>
+  </url>
+</urlset>
