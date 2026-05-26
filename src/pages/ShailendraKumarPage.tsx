@@ -9,9 +9,10 @@
  * - Premium typography: display weight for name, readable body for bio
  */
 
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowLeft, ExternalLink, BookOpen, Mic, GraduationCap, Globe, Award, Users, TrendingUp, Linkedin } from "lucide-react";
+import { ArrowLeft, ExternalLink, BookOpen, Mic, GraduationCap, Globe, Award, Users, TrendingUp, Linkedin, Landmark, Bot, BarChart3, Sparkles, Building2, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -30,32 +31,32 @@ const expertiseAreas = [
   {
     title: "Sovereign AI Architecture",
     description: "Designing India-native AI stacks that operate independently of foreign cloud dependencies — from silicon to citizen-facing applications across 22 Indian languages.",
-    icon: "🏛️",
+    Icon: Landmark,
   },
   {
     title: "Multimodal Agentic Systems",
     description: "Orchestrating multi-agent pipelines that perceive, reason, and act across text, voice, image, and sensor modalities for enterprise and government deployments.",
-    icon: "🤖",
+    Icon: Bot,
   },
   {
     title: "AI for Government & Governance",
     description: "Policy simulation engines, digital twin states, and AI-powered public service delivery — turning governance data into proactive citizen outcomes at scale.",
-    icon: "🏛️",
+    Icon: Building2,
   },
   {
     title: "Enterprise AI Strategy",
     description: "End-to-end AI transformation from boardroom strategy to production implementation, with a proven track record of AU$6 billion in measurable business value.",
-    icon: "📊",
+    Icon: BarChart3,
   },
   {
     title: "EdTech AI & Adaptive Learning",
     description: "Building sovereign learning agents for India's 500 million students — multilingual, curriculum-aligned, and accessible across the digital divide.",
-    icon: "🎓",
+    Icon: GraduationCap,
   },
   {
     title: "Generative AI & LLMs",
     description: "Deploying and fine-tuning large language models for multilingual Indian contexts, including Sarvam-2B, Krutrim, and custom domain-specific models.",
-    icon: "✨",
+    Icon: Sparkles,
   },
 ];
 
@@ -97,6 +98,39 @@ const publications = [
   },
 ];
 
+const testimonials = [
+  {
+    quote: "Shailendra's AI strategy session completely transformed how our board thinks about data monetisation. He translated complex AI concepts into clear commercial outcomes — and the AU$6 billion figure is not marketing; we saw it firsthand.",
+    name: "Chief Digital Officer",
+    company: "ASX 50 Retail Group",
+    industry: "Retail",
+  },
+  {
+    quote: "One of the most compelling keynotes I have attended in 20 years of technology leadership. Shailendra doesn't just talk about AI — he shows you exactly where the value is and how to capture it. Our executive team left with a concrete roadmap.",
+    name: "Group CTO",
+    company: "Global Telecommunications",
+    industry: "Telecom",
+  },
+  {
+    quote: "We engaged Shailendra to advise on our sovereign AI strategy for public sector deployment. His depth of knowledge on Indian-language models and agentic governance systems is unmatched. A true architect of the future.",
+    name: "Secretary, Digital Infrastructure",
+    company: "State Government Ministry",
+    industry: "Government",
+  },
+  {
+    quote: "Shailendra's workshop on Generative AI for our C-suite was the highest-rated session in our annual leadership summit — 97% satisfaction. He has a rare gift for making the technically complex feel immediately actionable.",
+    name: "Chief People & Culture Officer",
+    company: "Fortune 500 Energy Company",
+    industry: "Energy",
+  },
+  {
+    quote: "The Bharat Agentic Stack blueprint Shailendra presented to our investment committee was the most rigorous AI architecture document we have reviewed. It gave us the confidence to commit to a sovereign AI infrastructure programme.",
+    name: "Managing Partner",
+    company: "Asia-Pacific Technology Fund",
+    industry: "Finance",
+  },
+];
+
 const clientLogos = [
   { name: "Woolworths", industry: "Retail" },
   { name: "Coles", industry: "Retail" },
@@ -126,6 +160,133 @@ const fadeUp = {
   }),
 };
 
+function TestimonialsCarousel() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const go = useCallback((next: number) => {
+    setActive(next);
+  }, []);
+
+  const prev = useCallback(() => go((active - 1 + testimonials.length) % testimonials.length), [active, go]);
+  const next = useCallback(() => go((active + 1) % testimonials.length), [active, go]);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setActive((a) => (a + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(id);
+  }, [paused]);
+
+  const variants = {
+    enter: { opacity: 0, y: 12 },
+    center: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    exit: { opacity: 0, y: -8, transition: { duration: 0.4 } },
+  };
+
+  const t = testimonials[active];
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Large quote mark */}
+      <Quote className="absolute -top-2 left-0 w-12 h-12 text-teal-400/15 fill-teal-400/10" />
+
+      <div className="relative min-h-[220px] flex items-center">
+        {/* Left side arrow */}
+        <button
+          onClick={prev}
+          aria-label="Previous testimonial"
+          className="absolute -left-5 md:-left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm hover:border-teal-400/60 hover:bg-teal-400/10 flex items-center justify-center text-white/40 hover:text-teal-400 transition-all duration-200 hover:scale-110 group"
+        >
+          <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+        </button>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            className="w-full"
+          >
+            <blockquote className="text-xl md:text-2xl font-medium text-white/85 leading-relaxed text-center max-w-3xl mx-auto px-12 md:px-16 mb-10"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+            <div className="flex flex-col items-center gap-1">
+              <div className="w-8 h-px bg-teal-400/40 mb-3" />
+              <span className="text-sm font-semibold text-white">{t.name}</span>
+              <span className="text-xs text-white/40">{t.company}</span>
+              <span className="mt-1 text-[10px] font-semibold tracking-widest uppercase px-2.5 py-0.5 rounded-full border border-teal-400/25 text-teal-400/70">
+                {t.industry}
+              </span>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Right side arrow */}
+        <button
+          onClick={next}
+          aria-label="Next testimonial"
+          className="absolute -right-5 md:-right-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm hover:border-teal-400/60 hover:bg-teal-400/10 flex items-center justify-center text-white/40 hover:text-teal-400 transition-all duration-200 hover:scale-110 group"
+        >
+          <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+        </button>
+      </div>
+
+      {/* Progress bar */}
+      <div className="w-full max-w-xs mx-auto h-px bg-white/10 rounded-full overflow-hidden mt-10 mb-0">
+        <motion.div
+          key={`${active}-${paused}`}
+          className="h-full bg-teal-400/60 rounded-full origin-left"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: paused ? undefined : 1 }}
+          transition={paused ? {} : { duration: 6, ease: "linear" }}
+        />
+      </div>
+
+      {/* Dot navigation */}
+      <div className="flex items-center justify-center gap-4 mt-5">
+        <div className="flex items-center gap-3">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => go(i)}
+              aria-label={`Go to testimonial ${i + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                i === active
+                  ? "w-6 h-2 bg-teal-400"
+                  : "w-2 h-2 bg-white/20 hover:bg-white/40"
+              }`}
+            />
+          ))}
+          <AnimatePresence>
+            {paused && (
+              <motion.span
+                initial={{ opacity: 0, x: -6 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -6 }}
+                transition={{ duration: 0.2 }}
+                className="text-[10px] font-semibold tracking-widest uppercase text-teal-400/60 ml-1"
+              >
+                Paused
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 export default function ShailendraKumarPage() {
   return (
     <div className="min-h-screen bg-[#050A14] text-white">
@@ -151,30 +312,6 @@ export default function ShailendraKumarPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050A14] via-[#050A14]/60 to-[#050A14]/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#050A14]/80 via-transparent to-transparent" />
-
-        {/* Back link — breadcrumb below nav */}
-        <div className="absolute top-24 left-0 right-0 z-20">
-          <div className="max-w-6xl mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, x: -16 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="flex items-center gap-1.5 text-xs text-white/40"
-              style={{ fontFamily: "'DM Mono', monospace" }}
-            >
-              <Link href="/">
-                <span className="hover:text-teal-400 transition-colors cursor-pointer">KrishuAI</span>
-              </Link>
-              <span>/</span>
-              <Link href="/about">
-                <span className="hover:text-teal-400 transition-colors cursor-pointer">About</span>
-              </Link>
-              <span>/</span>
-              <span className="text-white/60">Shailendra Kumar</span>
-            </motion.div>
-
-          </div>
-        </div>
 
         {/* Hero content */}
         <div className="relative z-10 max-w-6xl mx-auto px-6 pb-20 w-full">
@@ -428,7 +565,9 @@ export default function ShailendraKumarPage() {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="p-6 rounded-2xl border border-white/8 bg-white/[0.03] hover:border-teal-400/30 hover:bg-teal-400/5 transition-all group"
               >
-                <div className="text-3xl mb-4">{area.icon}</div>
+                <div className="w-10 h-10 rounded-xl bg-teal-400/10 border border-teal-400/20 flex items-center justify-center mb-4 group-hover:bg-teal-400/20 transition-colors">
+                  <area.Icon className="w-5 h-5 text-teal-400" />
+                </div>
                 <h3 className="text-base font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">
                   {area.title}
                 </h3>
@@ -511,15 +650,12 @@ export default function ShailendraKumarPage() {
               <p className="text-white/60 leading-relaxed mb-8">
                 Shailendra's presentations are custom-tailored to spark momentum, inspire leadership teams, and deliver measurable change. With 300+ global events and praise from Fortune 500 executives, he brings practitioner-grade insight to every stage.
               </p>
-              <a
-                href="https://www.shailykumar.com/speaking"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 text-white text-sm font-semibold hover:opacity-90 hover:scale-105 transition-all"
-              >
-                <Mic className="w-4 h-4" />
-                Book a Keynote
-              </a>
+              <Link href="/contact">
+                <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 text-white text-sm font-semibold hover:opacity-90 hover:scale-105 transition-all cursor-pointer">
+                  <Mic className="w-4 h-4" />
+                  Book a Keynote
+                </span>
+              </Link>
             </motion.div>
 
             <div className="space-y-3">
@@ -579,6 +715,24 @@ export default function ShailendraKumarPage() {
               <div className="text-xs text-white/30 font-medium">{client.industry}</div>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* -- Testimonials -- */}
+      <section className="bg-white/[0.02] border-y border-white/5 py-20 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={0}
+            variants={fadeUp}
+            className="text-center mb-14"
+          >
+            <span className="text-xs font-semibold tracking-widest text-teal-400 uppercase mb-3 block">What Leaders Say</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Trusted by Executives Worldwide</h2>
+          </motion.div>
+          <TestimonialsCarousel />
         </div>
       </section>
 

@@ -340,6 +340,42 @@ export default function ContactPage() {
                   border: "1px solid rgba(255,255,255,0.07)",
                 }}
               >
+                <div className="mono-label text-xs text-white/40 mb-3">◆ Follow KrishuAI</div>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://www.linkedin.com/company/krishuai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-white/10 text-white/50 hover:text-[#0A66C2] hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/8 transition-all duration-200 group flex-1 justify-center"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                      <rect x="2" y="9" width="4" height="12"/>
+                      <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    <span className="text-xs font-medium" style={{ fontFamily: "DM Sans" }}>LinkedIn</span>
+                  </a>
+                  <a
+                    href="https://twitter.com/krishuai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-white/10 text-white/50 hover:text-white hover:border-white/30 hover:bg-white/6 transition-all duration-200 group flex-1 justify-center"
+                  >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <span className="text-xs font-medium" style={{ fontFamily: "DM Sans" }}>Twitter / X</span>
+                  </a>
+                </div>
+              </div>
+
+              <div
+                className="p-5 rounded-2xl"
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                }}
+              >
                 <div className="mono-label text-xs text-white/40 mb-3">◆ Direct Contacts</div>
                 <div className="flex flex-col gap-2">
                   {[
