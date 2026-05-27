@@ -8,7 +8,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DIAGRAM_URL = "/manus-storage/bharat_stack_diagram_dcb451a7.png";
+const DIAGRAM_URL = "/images/bharat-agentic-stack-diagram.png";
 
 const layers = [
   { label: "Input Sources", color: "#38BDF8", desc: "Citizens, government data, IoT sensors, and social signals" },

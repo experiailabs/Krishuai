@@ -7,6 +7,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "wouter";
+import { Linkedin, Twitter } from "lucide-react";
 
 // ── Footer Logo: breathing pulse + shimmer hover + teal glow ─────────────────
 function FooterLogo() {
@@ -28,7 +29,7 @@ function FooterLogo() {
     >
       {/* Breathing pulse when idle */}
       <motion.img
-        src="/images/logo_icon_512.png"
+        src="/manus-storage/logo_footer_white_80400ad3.png"
         alt="Krishu Techventures"
         style={{ height: '48px', width: 'auto', display: 'block' }}
         animate={!hovered ? { opacity: [1, 0.82, 1] } : { opacity: 1 }}
@@ -78,7 +79,7 @@ function FooterLink({ label }: { label: string }) {
   );
 }
 
-const footerLinks: Record<string, { label: string; href: string }[]> = {
+const footerLinks: Record<string, { label: string; href: string; external?: boolean }[]> = {
   "Solutions": [
     { label: "AI for Governance", href: "/solutions/governance" },
     { label: "AI EdTech", href: "/solutions/edtech" },
@@ -99,6 +100,8 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Connect": [
     { label: "Contact Us", href: "/contact" },
     { label: "Partner Program", href: "/partner" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/krishuai", external: true },
+    { label: "Twitter / X", href: "https://twitter.com/krishuai", external: true },
   ],
 };
 
@@ -155,6 +158,28 @@ export default function Footer() {
                 India · Global · Sovereign
               </div>
 
+              {/* Social links */}
+              <div className="flex items-center gap-3 mt-1">
+                <a
+                  href="https://www.linkedin.com/company/krishuai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="KrishuAI on LinkedIn"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/10 text-white/40 hover:text-[#0A66C2] hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10 transition-all duration-200"
+                >
+                  <Linkedin className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://twitter.com/krishuai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="KrishuAI on Twitter / X"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/10 text-white/40 hover:text-white hover:border-white/30 hover:bg-white/8 transition-all duration-200"
+                >
+                  <Twitter className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
               {/* Sister company */}
               <div className="flex flex-col gap-1.5 mt-1">
                 <div className="mono-label text-xs text-white/30">Sister Company</div>
@@ -204,9 +229,15 @@ export default function Footer() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.06 + li * 0.04, duration: 0.3 }}
                 >
-                  <Link href={link.href}>
-                    <FooterLink label={link.label} />
-                  </Link>
+                  {link.external ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer">
+                      <FooterLink label={link.label} />
+                    </a>
+                  ) : (
+                    <Link href={link.href}>
+                      <FooterLink label={link.label} />
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </motion.div>
@@ -232,6 +263,26 @@ export default function Footer() {
                 </span>
               </Link>
             ))}
+            <div className="flex items-center gap-2 ml-2">
+              <a
+                href="https://www.linkedin.com/company/krishuai"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="KrishuAI on LinkedIn"
+                className="w-7 h-7 rounded-md flex items-center justify-center border border-white/8 text-white/30 hover:text-[#0A66C2] hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/10 transition-all duration-200"
+              >
+                <Linkedin className="w-3 h-3" />
+              </a>
+              <a
+                href="https://twitter.com/krishuai"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="KrishuAI on Twitter / X"
+                className="w-7 h-7 rounded-md flex items-center justify-center border border-white/8 text-white/30 hover:text-white hover:border-white/25 hover:bg-white/8 transition-all duration-200"
+              >
+                <Twitter className="w-3 h-3" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
