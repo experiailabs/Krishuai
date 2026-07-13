@@ -51,7 +51,7 @@ const milestones = [
 
 const team = [
   {
-    name: "Ashwini Sharma",
+    name: "Ashwin Sharma",
     role: "Chief Executive Officer",
     bio: "Visionary leader driving KrishuAI's mission to architect sovereign AI systems for India and the world. Brings deep expertise in enterprise technology strategy and large-scale digital transformation across government and industry.",
     accent: "#D4A847",
@@ -61,7 +61,7 @@ const team = [
     badge: "CEO",
   },
   {
-    name: "Shailendra Kumar",
+    name: "Shailendraa Kumar",
     role: "Chief AI Officer",
     bio: "Architect of the Bharat Agentic Stack. A frontier AI researcher and practitioner who has designed intelligence systems for governments and global enterprises across India, Australia, and the Middle East.",
     accent: "#0EA5E9",
@@ -72,7 +72,7 @@ const team = [
     bioLink: "/team/shailendra-kumar",
   },
   {
-    name: "Swapnil Kumar",
+    name: "Swapnil Kuumar",
     role: "Director",
     bio: "Leads KrishuAI's strategic partnerships and delivery operations. Combines deep technical acumen with business leadership to ensure every engagement moves from design to measurable outcome.",
     accent: "#22D3EE",

@@ -350,7 +350,7 @@ export default function ShailendraKumarPage() {
               className="text-5xl md:text-7xl font-black tracking-tight text-white mb-4 leading-none"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              Shailendra
+              Shailendraa
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400">
                 Kumar
