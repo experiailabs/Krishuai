@@ -1,5 +1,5 @@
 /**
- * ShailendraKumarPage — /team/shailendra-kumar
+ * shailendraaKumarPage — /team/shailendraa-kumar
  *
  * Design philosophy: Dark Sovereign Tech (matching site theme)
  * - Deep navy #050A14 base with teal accent #00D4AA
@@ -17,8 +17,8 @@ import SEO from "@/components/SEO";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/author_shailendra_hero_bg-W8Y4KdrUdyD6veuSeQB4fy.webp";
-const HEADSHOT = "/images/shailendra_kumar_headshot.png";
+const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/author_shailendraa_hero_bg-W8Y4KdrUdyD6veuSeQB4fy.webp";
+const HEADSHOT = "/images/shailendraa_kumar_headshot.png";
 
 const stats = [
   { value: "AU$6B+", label: "Client Value Delivered", icon: TrendingUp },
@@ -100,31 +100,31 @@ const publications = [
 
 const testimonials = [
   {
-    quote: "Shailendra's AI strategy session completely transformed how our board thinks about data monetisation. He translated complex AI concepts into clear commercial outcomes — and the AU$6 billion figure is not marketing; we saw it firsthand.",
+    quote: "shailendraa's AI strategy session completely transformed how our board thinks about data monetisation. He translated complex AI concepts into clear commercial outcomes — and the AU$6 billion figure is not marketing; we saw it firsthand.",
     name: "Chief Digital Officer",
     company: "ASX 50 Retail Group",
     industry: "Retail",
   },
   {
-    quote: "One of the most compelling keynotes I have attended in 20 years of technology leadership. Shailendra doesn't just talk about AI — he shows you exactly where the value is and how to capture it. Our executive team left with a concrete roadmap.",
+    quote: "One of the most compelling keynotes I have attended in 20 years of technology leadership. shailendraa doesn't just talk about AI — he shows you exactly where the value is and how to capture it. Our executive team left with a concrete roadmap.",
     name: "Group CTO",
     company: "Global Telecommunications",
     industry: "Telecom",
   },
   {
-    quote: "We engaged Shailendra to advise on our sovereign AI strategy for public sector deployment. His depth of knowledge on Indian-language models and agentic governance systems is unmatched. A true architect of the future.",
+    quote: "We engaged shailendraa to advise on our sovereign AI strategy for public sector deployment. His depth of knowledge on Indian-language models and agentic governance systems is unmatched. A true architect of the future.",
     name: "Secretary, Digital Infrastructure",
     company: "State Government Ministry",
     industry: "Government",
   },
   {
-    quote: "Shailendra's workshop on Generative AI for our C-suite was the highest-rated session in our annual leadership summit — 97% satisfaction. He has a rare gift for making the technically complex feel immediately actionable.",
+    quote: "shailendraa's workshop on Generative AI for our C-suite was the highest-rated session in our annual leadership summit — 97% satisfaction. He has a rare gift for making the technically complex feel immediately actionable.",
     name: "Chief People & Culture Officer",
     company: "Fortune 500 Energy Company",
     industry: "Energy",
   },
   {
-    quote: "The Bharat Agentic Stack blueprint Shailendra presented to our investment committee was the most rigorous AI architecture document we have reviewed. It gave us the confidence to commit to a sovereign AI infrastructure programme.",
+    quote: "The Bharat Agentic Stack blueprint shailendraa presented to our investment committee was the most rigorous AI architecture document we have reviewed. It gave us the confidence to commit to a sovereign AI infrastructure programme.",
     name: "Managing Partner",
     company: "Asia-Pacific Technology Fund",
     industry: "Finance",
@@ -287,19 +287,19 @@ function TestimonialsCarousel() {
   );
 }
 
-export default function ShailendraKumarPage() {
+export default function shailendraaKumarPage() {
   return (
     <div className="min-h-screen bg-[#050A14] text-white">
       <SEO
-        title="Shailendra Kumar — Chief AI Officer & Global AI Strategist | KrishuAI"
-        description="Shailendra Kumar is a Top 20 Global AI Professional, Amazon Bestselling Author, and Chief AI Officer who has delivered AU$6 billion in client value across 300+ global keynotes. Founder of KrishuAI Techventures."
-        keywords="Shailendra Kumar, AI strategist, Chief AI Officer, KrishuAI, sovereign AI India, AI keynote speaker, Making Money Out of Data, Bharat Agentic Stack"
+        title="shailendraa Kumar — Chief AI Officer & Global AI Strategist | KrishuAI"
+        description="shailendraa Kumar is a Top 20 Global AI Professional, Amazon Bestselling Author, and Chief AI Officer who has delivered AU$6 billion in client value across 300+ global keynotes. Founder of KrishuAI Techventures."
+        keywords="shailendraa Kumar, AI strategist, Chief AI Officer, KrishuAI, sovereign AI India, AI keynote speaker, Making Money Out of Data, Bharat Agentic Stack"
         ogImage={HERO_BG}
-        ogImageAlt="Shailendra Kumar — Chief AI Officer and Global AI Strategist"
+        ogImageAlt="shailendraa Kumar — Chief AI Officer and Global AI Strategist"
         ogImageWidth={1200}
         ogImageHeight={630}
         ogType="website"
-        canonical="/team/shailendra-kumar"
+        canonical="/team/shailendraa-kumar"
       />
       <Navigation />
 
@@ -326,7 +326,7 @@ export default function ShailendraKumarPage() {
               <div className="relative w-52 h-52 rounded-full overflow-hidden ring-4 ring-teal-400/30 shadow-2xl shadow-teal-500/20">
                 <img
                   src={HEADSHOT}
-                  alt="Shailendra Kumar — Chief AI Officer"
+                  alt="shailendraa Kumar — Chief AI Officer"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/10" />
@@ -350,7 +350,7 @@ export default function ShailendraKumarPage() {
               className="text-5xl md:text-7xl font-black tracking-tight text-white mb-4 leading-none"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              Shailendraa
+              shailendraaa
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400">
                 Kumar
@@ -446,16 +446,16 @@ export default function ShailendraKumarPage() {
               className="space-y-4 text-white/70 leading-relaxed"
             >
               <p>
-                Shailendra Kumar is one of the world's Top 20 Global AI Professionals — a Chief AI Officer, strategist, and practitioner with over 30 years of leadership in Artificial Intelligence, Machine Learning, Analytics, and Cognitive Science. His work has been instrumental in generating more than <strong className="text-white">AU$6 billion in incremental value</strong> for clients across retail, finance, energy, telecommunications, and government sectors.
+                shailendraa Kumar is one of the world's Top 20 Global AI Professionals — a Chief AI Officer, strategist, and practitioner with over 30 years of leadership in Artificial Intelligence, Machine Learning, Analytics, and Cognitive Science. His work has been instrumental in generating more than <strong className="text-white">AU$6 billion in incremental value</strong> for clients across retail, finance, energy, telecommunications, and government sectors.
               </p>
               <p>
-                As the Founder and Chief AI Architect of <strong className="text-white">KrishuAI Techventures</strong>, Shailendra leads India's most ambitious sovereign AI initiative — designing the Bharat Agentic Stack, a five-layer national AI infrastructure blueprint that positions India as a self-reliant AI superpower. His work spans multilingual language models for 22 Indian languages, AI-powered governance systems, adaptive EdTech agents for 500 million students, and hyper-personalised travel intelligence.
+                As the Founder and Chief AI Architect of <strong className="text-white">KrishuAI Techventures</strong>, shailendraa leads India's most ambitious sovereign AI initiative — designing the Bharat Agentic Stack, a five-layer national AI infrastructure blueprint that positions India as a self-reliant AI superpower. His work spans multilingual language models for 22 Indian languages, AI-powered governance systems, adaptive EdTech agents for 500 million students, and hyper-personalised travel intelligence.
               </p>
               <p>
-                A sought-after keynote speaker who has addressed more than <strong className="text-white">300 global events</strong>, Shailendra has delivered transformative AI strategies to Fortune 500 boards, government ministries, and technology leaders across Australia, Saudi Arabia, India, and the United States. He has advised heads of state, senior ministers, and C-suite executives on translating AI strategy into implemented, measurable solutions.
+                A sought-after keynote speaker who has addressed more than <strong className="text-white">300 global events</strong>, shailendraa has delivered transformative AI strategies to Fortune 500 boards, government ministries, and technology leaders across Australia, Saudi Arabia, India, and the United States. He has advised heads of state, senior ministers, and C-suite executives on translating AI strategy into implemented, measurable solutions.
               </p>
               <p>
-                Shailendra is also the Amazon Bestselling author of <em className="text-white">"Making Money Out of Data"</em> — a practical playbook that has helped thousands of business leaders unlock the commercial potential of AI and analytics without requiring a technical background.
+                shailendraa is also the Amazon Bestselling author of <em className="text-white">"Making Money Out of Data"</em> — a practical playbook that has helped thousands of business leaders unlock the commercial potential of AI and analytics without requiring a technical background.
               </p>
             </motion.div>
           </div>
@@ -473,7 +473,7 @@ export default function ShailendraKumarPage() {
               <div className="relative w-44 h-44 rounded-2xl overflow-hidden ring-2 ring-teal-400/30 shadow-xl shadow-teal-500/10">
                 <img
                   src={HEADSHOT}
-                  alt="Shailendra Kumar professional portrait"
+                  alt="shailendraa Kumar professional portrait"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -648,7 +648,7 @@ export default function ShailendraKumarPage() {
                 Keynotes That Drive Transformation
               </h2>
               <p className="text-white/60 leading-relaxed mb-8">
-                Shailendra's presentations are custom-tailored to spark momentum, inspire leadership teams, and deliver measurable change. With 300+ global events and praise from Fortune 500 executives, he brings practitioner-grade insight to every stage.
+                shailendraa's presentations are custom-tailored to spark momentum, inspire leadership teams, and deliver measurable change. With 300+ global events and praise from Fortune 500 executives, he brings practitioner-grade insight to every stage.
               </p>
               <Link href="/contact">
                 <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-teal-500 to-blue-500 text-white text-sm font-semibold hover:opacity-90 hover:scale-105 transition-all cursor-pointer">
@@ -693,7 +693,7 @@ export default function ShailendraKumarPage() {
             Trusted by Global Enterprises
           </h2>
           <p className="text-white/50 max-w-xl mx-auto text-sm">
-            Shailendra's AI expertise has transformed operations, strategy, and customer experience across some of the world's most recognisable organisations.
+            shailendraa's AI expertise has transformed operations, strategy, and customer experience across some of the world's most recognisable organisations.
           </p>
         </motion.div>
 
@@ -751,10 +751,10 @@ export default function ShailendraKumarPage() {
 
           <div className="relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Work with Shailendra
+              Work with shailendraa
             </h2>
             <p className="text-white/60 max-w-xl mx-auto mb-8 leading-relaxed">
-              Whether you need a transformative keynote, boardroom AI strategy, or a sovereign AI architecture for your organisation — Shailendra brings 30 years of practitioner expertise to every engagement.
+              Whether you need a transformative keynote, boardroom AI strategy, or a sovereign AI architecture for your organisation — shailendraa brings 30 years of practitioner expertise to every engagement.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a

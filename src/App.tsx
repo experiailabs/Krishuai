@@ -25,7 +25,7 @@ import ContactPage from "./pages/ContactPage";
 import PartnerPage from "./pages/PartnerPage";
 import InvestorPage from "./pages/InvestorPage";
 import PressPage from "./pages/PressPage";
-import ShailendraKumarPage from "./pages/ShailendraKumarPage";
+import shailendraaKumarPage from "./pages/ShailendraaKumarPage";
 // Legal pages
 import { PrivacyPolicyPage, TermsOfServicePage, CookiePolicyPage } from "./pages/LegalPage";
 
@@ -58,7 +58,7 @@ function Router() {
       <Route path={"/partner"} component={PartnerPage} />
       <Route path={"/investors"} component={InvestorPage} />
       <Route path={"/press"} component={PressPage} />
-      <Route path={"/team/shailendra-kumar"} component={ShailendraKumarPage} />
+      <Route path={"/team/shailendraa-kumar"} component={shailendraaKumarPage} />
       {/* Legal */}
       <Route path={"/privacy"} component={PrivacyPolicyPage} />
       <Route path={"/terms"} component={TermsOfServicePage} />

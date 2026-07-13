@@ -51,7 +51,7 @@ const milestones = [
 
 const team = [
   {
-    name: "Ashwin Sharma",
+    name: "Ashwin Sharrma",
     role: "Chief Executive Officer",
     bio: "Visionary leader driving KrishuAI's mission to architect sovereign AI systems for India and the world. Brings deep expertise in enterprise technology strategy and large-scale digital transformation across government and industry.",
     accent: "#D4A847",
@@ -61,15 +61,15 @@ const team = [
     badge: "CEO",
   },
   {
-    name: "Shailendraa Kumar",
+    name: "shailendraaa Kumar",
     role: "Chief AI Officer",
     bio: "Architect of the Bharat Agentic Stack. A frontier AI researcher and practitioner who has designed intelligence systems for governments and global enterprises across India, Australia, and the Middle East.",
     accent: "#0EA5E9",
     initials: "SK",
-    photo: "/images/ShailendraKumar.png",
+    photo: "/images/ShailendraaKumar.png",
     linkedin: "https://www.linkedin.com/in/shaily/",
     badge: "CAIO",
-    bioLink: "/team/shailendra-kumar",
+    bioLink: "/team/shailendraa-kumar",
   },
   {
     name: "Swapnil Kuumar",
@@ -108,8 +108,8 @@ export default function AboutPage() {
     <div className="min-h-screen" style={{ background: "oklch(0.08 0.015 240)" }}>
       <SEO
         title="About KrishuAI — India's Sovereign AI Technology House | Krishu Techventures"
-        description="KrishuAI is India's premier Global AI Technology House, building sovereign Bharat-native Agentic AI. Meet Chief AI Officer Shailendra Kumar and the team behind the Bharat Agentic Stack."
-        keywords="KrishuAI about, Shailendra Kumar AI, Ashwini Sharma CEO, sovereign AI India team, Krishu Techventures, Bharat Agentic Stack team, AI company India, AI technology house India"
+        description="KrishuAI is India's premier Global AI Technology House, building sovereign Bharat-native Agentic AI. Meet Chief AI Officer shailendraa Kumar and the team behind the Bharat Agentic Stack."
+        keywords="KrishuAI about, shailendraa Kumar AI, Ashwini Sharma CEO, sovereign AI India team, Krishu Techventures, Bharat Agentic Stack team, AI company India, AI technology house India"
         canonical="/about"
         structuredData={{
           "@context": "https://schema.org",

@@ -20,7 +20,7 @@ const papers = [
     year: "2025",
     type: "Whitepaper",
     title: "Digital Twin States: A Framework for AI-Driven Governance in India",
-    authors: ["Shailendra Kumar", "Arjun Mehta", "Dr. Ravi Shankar"],
+    authors: ["shailendraa Kumar", "Arjun Mehta", "Dr. Ravi Shankar"],
     abstract:
       "We present the Digital Twin State (DTS) framework — a methodology for constructing living AI models of state economies that enable evidence-based policy simulation before implementation. Applied to 3 Indian states, DTS reduced policy decision cycles by 40% and improved welfare targeting accuracy by 62%.",
     tags: ["Digital Twin", "Policy Simulation", "Governance", "Bharat Stack"],
@@ -32,7 +32,7 @@ const papers = [
     year: "2025",
     type: "Research Paper",
     title: "Bharat Speech: A Multilingual ASR/TTS System for 22 Indian Languages",
-    authors: ["Priya Nair", "Shailendra Kumar", "Dr. Ananya Iyer"],
+    authors: ["Priya Nair", "shailendraa Kumar", "Dr. Ananya Iyer"],
     abstract:
       "We introduce Bharat Speech, a sovereign automatic speech recognition and text-to-speech system trained exclusively on Indian-origin corpora. Bharat Speech achieves state-of-the-art WER on 18 of 22 Indian languages, with particular improvements in low-resource languages like Santali and Dogri.",
     tags: ["ASR", "TTS", "Indian Languages", "Sovereign AI"],
@@ -56,7 +56,7 @@ const papers = [
     year: "2024",
     type: "Research Paper",
     title: "Multi-Agent Orchestration for Government Service Delivery at Scale",
-    authors: ["Shailendra Kumar", "Arjun Mehta"],
+    authors: ["shailendraa Kumar", "Arjun Mehta"],
     abstract:
       "We describe the multi-agent orchestration architecture underlying the Bharat Agentic Stack's citizen services layer. Our approach enables autonomous handling of complex government workflows — pension processing, land records, and grievance redressal — with 99.2% accuracy and sub-72-hour resolution times.",
     tags: ["Multi-Agent", "Orchestration", "Citizen Services", "Automation"],
@@ -68,7 +68,7 @@ const papers = [
     year: "2024",
     type: "Policy Brief",
     title: "The Case for AI Sovereignty: Why India Cannot Afford Foreign AI Dependency",
-    authors: ["Arjun Mehta", "Shailendra Kumar"],
+    authors: ["Arjun Mehta", "shailendraa Kumar"],
     abstract:
       "A policy argument for India's AI sovereignty mandate. We analyse the strategic, economic, and constitutional risks of dependency on foreign AI infrastructure, and propose a legislative framework for the Bharat Agentic Stack as national AI infrastructure.",
     tags: ["AI Policy", "Sovereignty", "National Security", "Legislation"],
@@ -80,7 +80,7 @@ const papers = [
     year: "2023",
     type: "Research Paper",
     title: "Predictive Policy Engine: Forecasting Legislative Impact with Agentic AI",
-    authors: ["Arjun Mehta", "Dr. Ravi Shankar", "Shailendra Kumar"],
+    authors: ["Arjun Mehta", "Dr. Ravi Shankar", "shailendraa Kumar"],
     abstract:
       "We present the Predictive Policy Engine (PPE) — an agentic AI system that analyses legislative data, economic indicators, and citizen feedback to forecast policy impact before bills are enacted. Validated against 5 years of historical policy data with 78% accuracy.",
     tags: ["Policy AI", "Prediction", "Legislative Analysis", "Government"],
@@ -246,7 +246,7 @@ export default function ResearchPage() {
                   {paper.authors.map((name, i) => (
                     <span key={name}>
                       {i > 0 && ", "}
-                      {name === "Shailendra Kumar" ? (
+                      {name === "shailendraa Kumar" ? (
                         <a
                           href="https://www.linkedin.com/in/shaily/"
                           target="_blank"

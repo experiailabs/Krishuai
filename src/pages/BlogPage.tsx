@@ -43,7 +43,7 @@ const articles = [
     subtitle: "The Architecture of Real-Time Sovereign Intelligence",
     excerpt:
       "Somewhere in a government control room in Hubballi-Dharwad, operators are watching two cities simultaneously — the physical one outside their windows, and its perfect digital mirror on the screens in front of them. This is the beginning of Digital Twin States.",
-    author: "Shailendra Kumar",
+    author: "shailendraa Kumar",
     authorRole: "Founder & Chief AI Architect, KrishuAI",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_digital_twin_hero-2u8LbEGHxxa9sqc7tLM46f.webp",
     slug: "digital-twin-states-india-governance",
@@ -59,7 +59,7 @@ const articles = [
     subtitle: "From Silicon to Citizen — A Five-Layer Blueprint",
     excerpt:
       "India's AI ambition is not merely to adopt artificial intelligence — it is to own the entire stack. From the silicon that runs the models to the agents that serve its 1.4 billion citizens, the Bharat Agentic Stack is the technical blueprint for that ambition.",
-    author: "Shailendra Kumar",
+    author: "shailendraa Kumar",
     authorRole: "Founder & Chief AI Architect, KrishuAI",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_agentic_stack_hero-LaHSrWeWG38DSWfASECMdG.webp",
     slug: "bharat-agentic-stack-technical-architecture",
@@ -82,7 +82,7 @@ export default function BlogPage() {
       <SEO
         title="AI Insights & Research | KrishuAI Intelligence Dispatch"
         description="Expert analysis on sovereign AI, Bharat Agentic Stack, AI governance, EdTech AI, Travel AI, and Bollywood generative media — from India's leading AI technology house, KrishuAI."
-        keywords="KrishuAI insights, sovereign AI India blog, Bharat Agentic Stack articles, AI governance India, EdTech AI India, Bollywood AI, travel AI India, Shailendra Kumar AI"
+        keywords="KrishuAI insights, sovereign AI India blog, Bharat Agentic Stack articles, AI governance India, EdTech AI India, Bollywood AI, travel AI India, shailendraa Kumar AI"
         canonical="/blog"
         ogImage="https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article1_hero-mJjfiFEbb8tFyojBRkSa6h.webp"
         ogImageAlt="KrishuAI Intelligence Dispatch — Expert AI analysis and research from India's sovereign AI technology house"
@@ -345,7 +345,7 @@ export default function BlogPage() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <img
-                      src="/manus-storage/shailendra_kumar_headshot_5d0bf9c3.webp"
+                      src="/manus-storage/shailendraa_kumar_headshot_5d0bf9c3.webp"
                       alt={article.author}
                       className="w-6 h-6 rounded-full object-cover flex-shrink-0"
                       style={{ border: `1px solid ${article.accent}40` }}

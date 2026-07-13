@@ -58,7 +58,7 @@ export const ARTICLES: Record<string, Article> = {
     readTime: "8 min read",
     publishedDate: "May 2025",
     publishedDateISO: "2025-05-01",
-    author: "Shailendra Kumar",
+    author: "shailendraa Kumar",
     authorRole: "Founder & Chief AI Architect, KrishuAI",
     authorLinkedIn: "https://www.linkedin.com/in/shaily/",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article1_hero-mJjfiFEbb8tFyojBRkSa6h.webp",
@@ -153,7 +153,7 @@ export const ARTICLES: Record<string, Article> = {
     readTime: "9 min read",
     publishedDate: "May 2025",
     publishedDateISO: "2025-05-05",
-    author: "Shailendra Kumar",
+    author: "shailendraa Kumar",
     authorRole: "Founder & Chief AI Architect, KrishuAI",
     authorLinkedIn: "https://www.linkedin.com/in/shaily/",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article2_hero-L6zN23oXhHatjbLP5FFaoN.webp",
@@ -250,7 +250,7 @@ export const ARTICLES: Record<string, Article> = {
     readTime: "10 min read",
     publishedDate: "May 2025",
     publishedDateISO: "2025-05-08",
-    author: "Shailendra Kumar",
+    author: "shailendraa Kumar",
     authorRole: "Founder & Chief AI Architect, KrishuAI",
     authorLinkedIn: "https://www.linkedin.com/in/shaily/",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_edtech_hero-o5BV2twnV6eY55f4YbmJoB.webp",
@@ -361,7 +361,7 @@ export const ARTICLES: Record<string, Article> = {
     readTime: "9 min read",
     publishedDate: "May 2025",
     publishedDateISO: "2025-05-12",
-    author: "Shailendra Kumar",
+    author: "shailendraa Kumar",
     authorRole: "Founder & Chief AI Architect, KrishuAI",
     authorLinkedIn: "https://www.linkedin.com/in/shaily/",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_travel_hero-oZEfQeFENy6go64Kh4zJxq.webp",
@@ -467,7 +467,7 @@ export const ARTICLES: Record<string, Article> = {
     readTime: "9 min read",
     publishedDate: "May 2025",
     publishedDateISO: "2025-05-15",
-    author: "Shailendra Kumar",
+    author: "shailendraa Kumar",
     authorRole: "Founder & Chief AI Architect, KrishuAI",
     authorLinkedIn: "https://www.linkedin.com/in/shaily/",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_entertainment_hero-Pvp92ihwayPZkLzP7BR6P6.webp",
@@ -606,7 +606,7 @@ export const ARTICLES: Record<string, Article> = {
     readTime: "10 min read",
     publishedDate: "May 2025",
     publishedDateISO: "2025-05-08",
-    author: "Shailendra Kumar",
+    author: "shailendraa Kumar",
     authorRole: "Founder & Chief AI Architect, KrishuAI",
     authorLinkedIn: "https://www.linkedin.com/in/shaily/",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_digital_twin_hero-2u8LbEGHxxa9sqc7tLM46f.webp",
@@ -734,7 +734,7 @@ export const ARTICLES: Record<string, Article> = {
     readTime: "11 min read",
     publishedDate: "May 2025",
     publishedDateISO: "2025-05-10",
-     author: "Shailendra Kumar",
+     author: "shailendraa Kumar",
     authorRole: "Founder & Chief AI Architect, KrishuAI",
     authorLinkedIn: "https://www.linkedin.com/in/shaily/",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663121212955/mURFFRyCHHRtAv6MhrB5ET/article_agentic_stack_hero-LaHSrWeWG38DSWfASECMdG.webp",
@@ -1057,18 +1057,18 @@ export default function ArticlePage({ slug }: ArticlePageProps) {
               {/* Author + Share */}
               <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
-                  <Link href="/team/shailendra-kumar">
+                  <Link href="/team/shailendraa-kumar">
                     <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-teal-400/30 cursor-pointer hover:scale-105 transition-transform hover:shadow-lg hover:shadow-teal-500/30 flex-shrink-0">
                       <img
-                        src="/manus-storage/shailendra_kumar_headshot_5d0bf9c3.webp"
-                        alt="Shailendra Kumar"
+                        src="/manus-storage/shailendraa_kumar_headshot_5d0bf9c3.webp"
+                        alt="shailendraa Kumar"
                         className="w-full h-full object-cover"
                       />
                     </div>
                   </Link>
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <Link href="/team/shailendra-kumar">
+                      <Link href="/team/shailendraa-kumar">
                         <span className="font-semibold text-white hover:text-teal-400 transition-colors cursor-pointer">
                           {article.author}
                         </span>
