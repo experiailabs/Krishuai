@@ -101,6 +101,17 @@ const team = [
     linkedin: "https://www.linkedin.com/in/dineshkrishnan/",
     badge: "ADV",
   },
+  
+   {
+    name: "Dr. Ayan Kumar Pujari",
+    role: "Strategic Advisor",
+    bio: "An enthusiastic educator and an experienced Data Science professional with more than 15 years of experience in econometric modeling, machine learning, and leading analytical teams at firms like Accenture, Ipsos and Infosys.",
+    accent: "#FB923C",
+    initials: "AK",
+    photo: "/images/ayan_kumar.jpg",
+    linkedin: "https://www.linkedin.com/in/ayan-pujari-b695a59",
+    badge: "ADV",
+  },
 ];
 
 export default function AboutPage() {
