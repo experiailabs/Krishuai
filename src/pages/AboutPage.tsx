@@ -501,7 +501,8 @@ export default function AboutPage() {
             ))}
           </div>
           {/* Second row: 2 advisors, centered */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    {/* Second row: advisors, flex-wrapped and centered */}
+          <div className="flex flex-wrap justify-center gap-6">
             {team.slice(3).map((member, i) => (
               <motion.div
                 key={member.name}
@@ -509,7 +510,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: (i + 3) * 0.1 }}
-                className="p-6 rounded-2xl flex flex-col gap-4 group relative"
+                className="p-6 rounded-2xl flex flex-col gap-4 group relative w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
                 style={{
                   background: "rgba(255,255,255,0.03)",
                   border: `1px solid ${member.accent}25`,
